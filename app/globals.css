@@ -386,6 +386,7 @@ h1 {
 .section-index {
   margin-bottom: 26px;
   color: var(--green-dark);
+  font-size: 14px;
 }
 
 .section h2,
@@ -505,7 +506,7 @@ h1 {
   justify-content: space-between;
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 650;
   letter-spacing: .07em;
 }
@@ -629,7 +630,7 @@ h1 {
 .principles-grid article > span {
   color: var(--blue);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .principles-grid h3 {
@@ -666,6 +667,13 @@ h1 {
   color: #c8cfca;
   font-size: 14px;
   line-height: 1.55;
+}
+
+.governance-note a {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: #7e8982;
+  text-underline-offset: 3px;
 }
 
 .community-section {
@@ -955,7 +963,7 @@ footer > p {
 .team-grid article > span {
   color: var(--blue);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .team-grid h3 {
@@ -1016,17 +1024,17 @@ footer > p {
 
 .connection-section { background: var(--soft); }
 
-.coordination-steps {
+.connection-summary {
   margin-top: 70px;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
 }
 
-.coordination-steps article {
-  min-height: 300px;
-  padding: 24px;
+.connection-summary article {
+  min-height: 330px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--border);
@@ -1034,23 +1042,26 @@ footer > p {
   background: var(--white);
 }
 
-.coordination-steps article > span,
+.connection-summary article > span,
 .integration-grid > a > span {
   color: var(--blue);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-.coordination-steps h3 {
+.connection-summary h3 {
   margin: 70px 0 14px;
-  font-size: 18px;
+  font-size: 25px;
   letter-spacing: -.025em;
 }
 
-.coordination-steps p {
+.connection-summary p {
   margin: auto 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -1155,8 +1166,8 @@ footer > p {
 .launch-sponsor + .team-grid { margin-top: 16px; }
 
 @media (max-width: 1120px) {
-  .coordination-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .coordination-steps article { min-height: 250px; }
+  .connection-summary { grid-template-columns: 1fr; }
+  .connection-summary article { min-height: 280px; }
   .integration-grid { grid-template-columns: 1fr; }
   .integration-grid > a { min-height: 300px; }
   .launch-sponsor { grid-template-columns: 1fr; }
@@ -1166,9 +1177,8 @@ footer > p {
 
 @media (max-width: 700px) {
   .seamless-node strong { font-size: 13px; }
-  .coordination-steps { grid-template-columns: 1fr; }
-  .coordination-steps article { min-height: 220px; }
-  .coordination-steps h3 { margin-top: 50px; }
+  .connection-summary article { min-height: 260px; padding: 25px; }
+  .connection-summary h3 { margin-top: 50px; }
   .provider-control-note { grid-template-columns: 1fr; }
   .integration-grid > a { min-height: 330px; padding: 25px; }
   .launch-sponsor { padding: 25px; }

@@ -19,7 +19,7 @@ const talkingPoints = [
   ["Protocol choice", "Seamless Connect is protocol agnostic. Each operation category should use the suitable open protocol, interface, or coordination pattern."],
   ["The funding model", "Sponsors capitalize a focused two-year buildout. At scale, transparent usage fees are intended to recover the cost of operating the shared service."],
   ["The market outcome", "Organizations may use Seamless Connect directly or build commercial services on top. The neutral layer enables competition in experience, support, security, analytics, and orchestration."],
-  ["The governance guarantee", "Funding does not buy protocol influence, technical approval, preferential interoperability, listing, or exclusive access. Technical participation remains open without payment."],
+  ["Governance", "Seamless Connect is governed through the Foundation for Agentic Networks (FAN), a United States 501(c)(3) nonprofit. Funding does not buy protocol influence, technical approval, preferential interoperability, listing, or exclusive access."],
 ];
 
 const questions = [
@@ -27,6 +27,7 @@ const questions = [
   ["Why start with Domain Connect?", "It has proven utility, an existing implementation ecosystem, and standards-track readiness through the IETF DCONN Working Group. It lets Seamless Connect deliver value now while building reusable infrastructure for what comes next."],
   ["Will every Seamless Connect operation use Domain Connect?", "No. Domain Connect is the first protocol. The technical community should select the most suitable open mechanism for each later operation category."],
   ["Is Seamless Connect competing with commercial integration products?", "No. Seamless Connect establishes neutral infrastructure that commercial products can use and extend. It should make entry and differentiation easier, not prohibit commercial services."],
+  ["Who governs Seamless Connect?", "The project is governed through the Foundation for Agentic Networks (FAN), a United States 501(c)(3) nonprofit committed to openness, neutrality, and public benefit."],
   ["Why not let every company build its own integrations?", "They can, but the ecosystem repeatedly pays for the same foundational work. Shared implementation, registries, and conformance tooling reduce duplicated engineering and make interoperability more dependable."],
   ["Why sponsor something that will later charge for usage?", "Sponsorship supplies the concentrated capital needed to create the service and reach useful coverage. Later operating fees are intended to sustain the service transparently rather than create lock-in."],
   ["Does a larger sponsor control the technical roadmap?", "No. Sponsorship supports funding governance and strategic planning, but protocols and technical decisions remain part of the open technical community and applicable standards processes."],

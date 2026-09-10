@@ -75,7 +75,7 @@ test("recognizes the founding sponsor and founding team", async () => {
   assert.match(homepage, /linkedin\.com\/in\/kerolasa/);
 });
 
-test("explains the concrete flow, role paths, and staged roadmap", async () => {
+test("explains the connection model, role paths, and staged roadmap", async () => {
   const [homepage, sponsors, whyParticipate, toolkit] = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
@@ -84,14 +84,9 @@ test("explains the concrete flow, role paths, and staged roadmap", async () => {
   ]);
 
   assert.match(homepage, /How one connection works/);
-  assert.match(homepage, /Discover/);
-  assert.match(homepage, /Authorize/);
-  assert.match(homepage, /Evaluate/);
-  assert.match(homepage, /Execute/);
-  assert.match(homepage, /Persist/);
-  assert.match(homepage, /Verify/);
-  assert.match(homepage, /Complete/);
-  assert.match(homepage, /Providers retain their own APIs, policies, authorization models/);
+  assert.match(homepage, /One connection\./);
+  assert.match(homepage, /does not prescribe one universal execution sequence/);
+  assert.doesNotMatch(homepage, /<h3>Discover<\/h3>|<h3>Authorize<\/h3>|<h3>Evaluate<\/h3>|<h3>Persist<\/h3>/);
   assert.match(homepage, /service-provider-integration-checklist\.md/);
   assert.match(homepage, /dns-provider-integration-checklist\.md/);
   assert.match(homepage, /registrar-integration-checklist\.md/);
@@ -114,7 +109,7 @@ test("keeps competitive positioning vendor-neutral", async () => {
   }
 });
 
-test("uses Seamless Connect consistently without premature foundation claims", async () => {
+test("uses Seamless Connect consistently and identifies FAN governance", async () => {
   const pages = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
@@ -124,9 +119,10 @@ test("uses Seamless Connect consistently without premature foundation claims", a
 
   for (const page of pages) {
     assert.match(page, /Seamless Connect/);
+    assert.match(page, /Foundation for Agentic Networks/);
     assert.doesNotMatch(page, /SeamlessDNS|Seamless DNS/);
     assert.doesNotMatch(page, /\bSeamless\b(?! Connect)/);
-    assert.doesNotMatch(page, /Seamless Foundation|Series of LF Projects|Foundation for Agentic Networks/);
+    assert.doesNotMatch(page, /Seamless Foundation|Series of LF Projects/);
   }
 });
 

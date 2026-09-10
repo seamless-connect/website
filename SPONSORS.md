@@ -83,6 +83,8 @@ Commercial products remain free to add embedded experiences, monitoring, enterpr
 
 Financial support and technical participation are deliberately separate.
 
+Seamless Connect is governed through the **Foundation for Agentic Networks (FAN)**, a United States 501(c)(3) nonprofit committed to openness, neutrality, and public benefit.
+
 - Sponsorship does **not** buy protocol influence, technical approval, preferential interoperability, listing, or exclusive access.
 - Code, standards participation, conformance work, and technical community involvement remain open without payment.
 - The project is protocol agnostic and evaluates protocols according to the needs of each operation category.

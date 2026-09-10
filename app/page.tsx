@@ -4,16 +4,6 @@ import { ExternalArrow, SiteFooter, SiteHeader } from "./components/site-chrome"
 const githubUrl = "https://github.com/seamlessdns";
 const docsUrl = "https://github.com/seamlessdns/docs/blob/main";
 
-const coordinationSteps = [
-  ["01", "Discover", "Identify the customer’s provider and the supported connection path."],
-  ["02", "Authorize", "Use the provider’s authorization model to secure the customer’s approval."],
-  ["03", "Evaluate", "Check capabilities, policy, and the request before any change is made."],
-  ["04", "Execute", "Translate the standard request into the provider-specific operation."],
-  ["05", "Persist", "Keep durable state and retry safely when a workflow is interrupted."],
-  ["06", "Verify", "Confirm the intended result against the authoritative system."],
-  ["07", "Complete", "Return normalized status and a clear completion result to the service."],
-];
-
 const integrationPaths = [
   { role: "Service Provider", copy: "Create a standard Domain Connect request, guide the domain owner through authorization, and consume a consistent completion result.", link: `${docsUrl}/service-provider-integration-checklist.md` },
   { role: "DNS Provider", copy: "Publish discovery metadata, support secure setup flows, apply provider policy, and make DNS changes verifiable.", link: `${docsUrl}/dns-provider-integration-checklist.md` },
@@ -83,13 +73,15 @@ export default function Home() {
 
       <section className="section connection-section" id="how">
         <div className="section-heading split-heading">
-          <div><p className="section-index">01 / How one connection works</p><h2>One request.<br />A verified result.</h2></div>
-          <p>A Service Provider describes the desired outcome once. Seamless Connect coordinates the work across the customer’s provider without replacing the provider’s systems or control.</p>
+          <div><p className="section-index">01 / How one connection works</p><h2>One connection.<br />Provider control.</h2></div>
+          <p>A Service Provider connects through Seamless Connect to the customer’s provider. The shared layer coordinates the interaction while each provider retains control of its systems and policies.</p>
         </div>
-        <div className="coordination-steps">
-          {coordinationSteps.map(([index, title, copy]) => <article key={title}><span>{index}</span><h3>{title}</h3><p>{copy}</p></article>)}
+        <div className="connection-summary">
+          <article><span>Service Provider</span><h3>Use one open connection.</h3><p>Integrate once to initiate supported operations across participating providers.</p></article>
+          <article><span>Seamless Connect</span><h3>Coordinate across boundaries.</h3><p>Connect services and providers through open standards and shared infrastructure.</p></article>
+          <article><span>Provider</span><h3>Keep authority and control.</h3><p>Apply provider-specific capabilities, policies, authorization, and operational systems.</p></article>
         </div>
-        <div className="provider-control-note"><strong>Coordination, not replacement.</strong><p>Providers retain their own APIs, policies, authorization models, and operational authority. Seamless Connect supplies a consistent request and status layer around them.</p></div>
+        <div className="provider-control-note"><strong>Coordination, not replacement.</strong><p>The exact workflow depends on the operation. Seamless Connect does not prescribe one universal execution sequence or replace provider APIs, policies, authorization models, or operational authority.</p></div>
       </section>
 
       <section className="section integration-section" id="integrate">
@@ -133,7 +125,7 @@ export default function Home() {
         <div className="principles-grid">
           {principles.map(([title, copy], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
-        <div className="governance-note"><strong>Governance is in formation.</strong><p>Technical participation is open today. A durable neutral governance and funding structure is still being developed; sponsorship does not buy protocol influence, technical approval, or exclusive access.</p></div>
+        <div className="governance-note"><strong>Governed through FAN.</strong><p>Seamless Connect is governed through the <a href="https://www.agenticnet.org/" target="_blank" rel="noreferrer">Foundation for Agentic Networks (FAN) <ExternalArrow /></a>, a United States 501(c)(3) nonprofit committed to openness, neutrality, and public benefit. Sponsorship does not buy protocol influence, technical approval, or exclusive access.</p></div>
         <div className="standards-callout">
           <span className="callout-mark">D/C</span>
           <div><p className="section-index">Standards in motion</p><h3>A proven protocol and an open standards process.</h3><p>Follow the deployed Domain Connect ecosystem and the IETF working group developing the standard.</p></div>
