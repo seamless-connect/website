@@ -66,7 +66,7 @@ test("recognizes the founding sponsor and founding team", async () => {
 
   assert.match(sponsors, /Founding Sponsor/);
   assert.match(sponsors, /Name\.com/);
-  assert.match(homepage, /Founding team/);
+  assert.match(homepage, /Founding &amp; launch community/);
   assert.match(homepage, /Brian Toresdahl/);
   assert.match(homepage, /Pawel Kowalik/);
   assert.match(homepage, /Sami Kerola/);
@@ -75,7 +75,7 @@ test("recognizes the founding sponsor and founding team", async () => {
   assert.match(homepage, /linkedin\.com\/in\/kerolasa/);
 });
 
-test("states the full scope and protocol-agnostic approach", async () => {
+test("explains the concrete flow, role paths, and staged roadmap", async () => {
   const [homepage, sponsors, whyParticipate, toolkit] = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
@@ -83,13 +83,22 @@ test("states the full scope and protocol-agnostic approach", async () => {
     exportedHtml("sponsors/toolkit/index.html"),
   ]);
 
-  assert.match(homepage, /protocol best suited to each task/);
-  assert.match(homepage, /may or may not use domains or DNS/);
-  assert.match(sponsors, /protocol agnostic/);
-  assert.match(sponsors, /domain and agent operations/);
+  assert.match(homepage, /How one connection works/);
+  assert.match(homepage, /Discover/);
+  assert.match(homepage, /Authorize/);
+  assert.match(homepage, /Evaluate/);
+  assert.match(homepage, /Execute/);
+  assert.match(homepage, /Persist/);
+  assert.match(homepage, /Verify/);
+  assert.match(homepage, /Complete/);
+  assert.match(homepage, /Providers retain their own APIs, policies, authorization models/);
+  assert.match(homepage, /service-provider-integration-checklist\.md/);
+  assert.match(homepage, /dns-provider-integration-checklist\.md/);
+  assert.match(homepage, /registrar-integration-checklist\.md/);
+  assert.ok(homepage.indexOf("Operationalize Domain Connect") < homepage.indexOf("agentic operations"));
+  assert.match(sponsors, /architectural extension/);
   assert.match(whyParticipate, /Value by operation category/);
-  assert.match(toolkit, /Is Seamless a DNS or domain project\?/);
-  assert.match(toolkit, /Foundation for Agentic Networks/);
+  assert.match(toolkit, /Is Seamless Connect a DNS or domain project\?/);
 });
 
 test("keeps competitive positioning vendor-neutral", async () => {
@@ -105,7 +114,7 @@ test("keeps competitive positioning vendor-neutral", async () => {
   }
 });
 
-test("does not export legacy SeamlessDNS branding", async () => {
+test("uses Seamless Connect consistently without premature foundation claims", async () => {
   const pages = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
@@ -114,7 +123,10 @@ test("does not export legacy SeamlessDNS branding", async () => {
   ]);
 
   for (const page of pages) {
+    assert.match(page, /Seamless Connect/);
     assert.doesNotMatch(page, /SeamlessDNS|Seamless DNS/);
+    assert.doesNotMatch(page, /\bSeamless\b(?! Connect)/);
+    assert.doesNotMatch(page, /Seamless Foundation|Series of LF Projects|Foundation for Agentic Networks/);
   }
 });
 

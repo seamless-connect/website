@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/sponsors/",
   },
-  title: "Support Seamless",
+  title: "Support Seamless Connect",
   description:
-    "Fund neutral infrastructure for automated domain and agent operations.",
+    "Fund neutral infrastructure for authorized domain operations across providers.",
 };
 
 const githubUrl = "https://github.com/seamlessdns";
@@ -137,7 +137,7 @@ export default function SponsorsPage() {
       <SiteHeader page="sponsors" />
 
       <section className={styles.hero}>
-        <p className="eyebrow"><span /> Support Seamless</p>
+        <p className="eyebrow"><span /> Support Seamless Connect</p>
         <p>Fund the neutral layer for automated Internet operations.</p>
       </section>
 
@@ -145,7 +145,7 @@ export default function SponsorsPage() {
         <Link href="/sponsors/why-participate/">
           <span>01</span>
           <strong>Why participate</strong>
-          <p>The economic case for domain, infrastructure, and agent ecosystems.</p>
+          <p>The economic case for services, DNS providers, and registrars.</p>
         </Link>
         <Link href="/sponsors/toolkit/">
           <span>02</span>
@@ -167,7 +167,7 @@ export default function SponsorsPage() {
       <section className="community-section">
         <div>
           <p className="eyebrow"><span /> Build the neutral foundation with us</p>
-          <h2>Invest in infrastructure for domains, services, and agents.</h2>
+          <h2>Invest in infrastructure for cross-provider domain operations.</h2>
           <p>Support the two-year buildout, contribute engineering, or help another organization understand the opportunity.</p>
         </div>
         <div className="community-actions">

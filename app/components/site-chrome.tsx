@@ -3,9 +3,10 @@ import Link from "next/link";
 const githubUrl = "https://github.com/seamlessdns";
 
 const navigation = [
-  ["Why Seamless", "why"],
-  ["What we're building", "building"],
-  ["Governance", "governance"],
+  ["How it works", "how"],
+  ["Integrate", "integrate"],
+  ["Roadmap", "roadmap"],
+  ["Standards", "standards"],
   ["Community", "community"],
 ] as const;
 
@@ -18,9 +19,9 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
 
   return (
     <header className="site-header">
-      <Link className="wordmark" href={homeHref} aria-label="Seamless home">
+      <Link className="wordmark" href={homeHref} aria-label="Seamless Connect home">
         <span className="wordmark-mark" aria-hidden="true">S</span>
-        <span>Seamless</span>
+        <span>Seamless Connect</span>
       </Link>
       <nav aria-label="Primary navigation">
         {navigation.map(([label, fragment]) => (
@@ -50,9 +51,9 @@ export function SiteFooter({ page }: { page: "home" | "sponsors" }) {
         href={page === "home" ? "#top" : "/"}
       >
         <span className="wordmark-mark" aria-hidden="true">S</span>
-        <span>Seamless</span>
+        <span>Seamless Connect</span>
       </Link>
-      <p>Open infrastructure for configuration, discovery, authorization, and verification.</p>
+      <p>Open infrastructure for authorized operations across Internet providers.</p>
       <div className="footer-links">
         <Link href="/sponsors/">Support</Link>
         <a href={githubUrl} target="_blank" rel="noreferrer">GitHub</a>
@@ -60,10 +61,7 @@ export function SiteFooter({ page }: { page: "home" | "sponsors" }) {
         <a href="https://datatracker.ietf.org/wg/dconn/about/" target="_blank" rel="noreferrer">IETF</a>
       </div>
       <p className="footer-legal">
-        Copyright © Seamless a Series of LF Projects, LLC
-        <br />
-        For web site terms of use, trademark policy and other project policies please see{" "}
-        <a href="https://lfprojects.org/" target="_blank" rel="noreferrer">lfprojects.org</a>.
+        Seamless Connect is an open-source project. Its durable governance and funding structure is in formation.
       </p>
     </footer>
   );

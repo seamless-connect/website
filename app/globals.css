@@ -217,6 +217,8 @@ h1 {
 }
 .source-icon { color: var(--blue); font-size: 25px; line-height: 1; font-weight: 650; }
 .stack-icon { font-size: 34px; transform: rotate(45deg); }.agent-icon { font-size: 30px; }
+.owner-source { border-color: #8fdba5; }
+.owner-icon { color: var(--green-dark); }
 .source-connectors {
   position: relative; z-index: 1; display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(12px,2.25vw,32px);
@@ -1012,12 +1014,164 @@ footer > p {
   line-height: 1.55;
 }
 
+.connection-section { background: var(--soft); }
+
+.coordination-steps {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.coordination-steps article {
+  min-height: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.coordination-steps article > span,
+.integration-grid > a > span {
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.coordination-steps h3 {
+  margin: 70px 0 14px;
+  font-size: 18px;
+  letter-spacing: -.025em;
+}
+
+.coordination-steps p {
+  margin: auto 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.provider-control-note {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: .35fr 1fr;
+  gap: 30px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.provider-control-note strong {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.provider-control-note p {
+  margin: 0;
+  color: #c8cfca;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.integration-grid {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.integration-grid > a {
+  min-height: 390px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background .18s ease-out;
+}
+
+.integration-grid > a:hover { background: var(--soft); }
+
+.integration-grid h3 {
+  margin: 70px 0 18px;
+  font-size: 28px;
+  letter-spacing: -.035em;
+}
+
+.integration-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.integration-grid strong {
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.governance-section .standards-callout { margin-top: 16px; }
+
+.launch-sponsor {
+  margin-top: 70px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: .6fr 1fr auto;
+  gap: 40px;
+  align-items: center;
+  border: 1px solid #9de2b1;
+  background: #f4fbf6;
+}
+
+.launch-sponsor h3 {
+  margin: 18px 0 0;
+  font-size: 30px;
+  letter-spacing: -.04em;
+}
+
+.launch-sponsor p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.launch-sponsor > a {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--green);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.launch-sponsor + .team-grid { margin-top: 16px; }
+
 @media (max-width: 1120px) {
+  .coordination-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .coordination-steps article { min-height: 250px; }
+  .integration-grid { grid-template-columns: 1fr; }
+  .integration-grid > a { min-height: 300px; }
+  .launch-sponsor { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .team-grid article { min-height: 300px; }
 }
 
 @media (max-width: 700px) {
+  .seamless-node strong { font-size: 13px; }
+  .coordination-steps { grid-template-columns: 1fr; }
+  .coordination-steps article { min-height: 220px; }
+  .coordination-steps h3 { margin-top: 50px; }
+  .provider-control-note { grid-template-columns: 1fr; }
+  .integration-grid > a { min-height: 330px; padding: 25px; }
+  .launch-sponsor { padding: 25px; }
   .team-grid article {
     min-height: 330px;
     padding: 25px;
