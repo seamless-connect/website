@@ -58,6 +58,22 @@ test("exports the stakeholder value and champion toolkit pages", async () => {
   );
 });
 
+test("exports the charter summary and links to the canonical charter", async () => {
+  const html = await exportedHtml("charter/index.html");
+
+  assert.match(html, /Open infrastructure for cross-provider Internet coordination\./);
+  assert.match(html, /What the charter establishes/);
+  assert.match(html, /Governance and administrative home/);
+  assert.match(
+    html,
+    /https:\/\/github\.com\/seamlessdns\/spec\/blob\/main\/governance\/CHARTER\.md/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/charter\/"/,
+  );
+});
+
 test("recognizes the founding sponsor and founding team", async () => {
   const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
@@ -99,6 +115,7 @@ test("explains the connection model, role paths, and staged roadmap", async () =
 test("keeps competitive positioning vendor-neutral", async () => {
   const pages = await Promise.all([
     exportedHtml("index.html"),
+    exportedHtml("charter/index.html"),
     exportedHtml("sponsors/index.html"),
     exportedHtml("sponsors/why-participate/index.html"),
     exportedHtml("sponsors/toolkit/index.html"),
@@ -112,6 +129,7 @@ test("keeps competitive positioning vendor-neutral", async () => {
 test("uses Seamless Connect consistently and identifies FAN governance", async () => {
   const pages = await Promise.all([
     exportedHtml("index.html"),
+    exportedHtml("charter/index.html"),
     exportedHtml("sponsors/index.html"),
     exportedHtml("sponsors/why-participate/index.html"),
     exportedHtml("sponsors/toolkit/index.html"),
