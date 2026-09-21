@@ -66,7 +66,7 @@ test("exports the charter summary and links to the canonical charter", async () 
   assert.match(html, /Governance and administrative home/);
   assert.match(
     html,
-    /https:\/\/github\.com\/seamlessdns\/spec\/blob\/main\/governance\/CHARTER\.md/,
+    /https:\/\/github\.com\/seamless-connect\/spec\/blob\/main\/governance\/CHARTER\.md/,
   );
   assert.match(
     html,
