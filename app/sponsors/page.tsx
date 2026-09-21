@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     "Fund neutral infrastructure for authorized domain operations across providers.",
 };
 
-const githubUrl = "https://github.com/seamlessdns";
-const sourceUrl = "https://github.com/seamlessdns/website/blob/main/SPONSORS.md";
+const githubUrl = "https://github.com/seamless-connect";
+const sourceUrl = "https://github.com/seamless-connect/website/blob/main/SPONSORS.md";
 
 function inlineMarkdown(value: string): ReactNode[] {
   return value
