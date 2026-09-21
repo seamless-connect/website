@@ -135,7 +135,7 @@ export default function ToolkitPage() {
           <p>Use these materials, make a warm introduction, or participate directly in the open project.</p>
         </div>
         <div className="community-actions">
-          <a className="button button-light" href="https://github.com/seamlessdns" target="_blank" rel="noreferrer">
+          <a className="button button-light" href="https://github.com/seamless-connect" target="_blank" rel="noreferrer">
             Join on GitHub <ExternalArrow />
           </a>
         </div>
