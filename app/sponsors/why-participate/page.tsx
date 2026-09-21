@@ -125,7 +125,7 @@ export default function WhyParticipatePage() {
           <p>Paid membership supports capitalization. Technical participation and protocol work remain open and independent.</p>
         </div>
         <div className="community-actions">
-          <a className="button button-light" href="https://github.com/seamlessdns" target="_blank" rel="noreferrer">
+          <a className="button button-light" href="https://github.com/seamless-connect" target="_blank" rel="noreferrer">
             Join on GitHub <ExternalArrow />
           </a>
         </div>
