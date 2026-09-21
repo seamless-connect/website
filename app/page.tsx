@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ExternalArrow, SiteFooter, SiteHeader } from "./components/site-chrome";
 
 const githubUrl = "https://github.com/seamless-connect";
-const docsUrl = "https://github.com/seamless-connect/docs/blob/main";
+const docsUrl = "https://github.com/seamless-connect/docs/blob/main/integration-checklists";
 
 const integrationPaths = [
   { role: "Service Provider", copy: "Create a standard Domain Connect request, guide the domain owner through authorization, and consume a consistent completion result.", link: `${docsUrl}/service-provider-integration-checklist.md` },
