@@ -3,7 +3,7 @@ import { ExternalArrow, SiteFooter, SiteHeader } from "../components/site-chrome
 import styles from "../sponsors/sponsors.module.css";
 
 const charterUrl =
-  "https://github.com/seamlessdns/spec/blob/main/governance/CHARTER.md";
+  "https://github.com/seamless-connect/spec/blob/main/governance/CHARTER.md";
 
 export const metadata: Metadata = {
   alternates: {
