@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const githubUrl = "https://github.com/seamlessdns";
+const githubUrl = "https://github.com/seamless-connect";
 
 const navigation = [
   ["How it works", "how"],
