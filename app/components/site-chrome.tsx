@@ -29,6 +29,7 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
             {label}
           </Link>
         ))}
+        <Link href="/events/">Events</Link>
         <Link href="/charter/">Charter</Link>
         <Link href="/sponsors/">Support</Link>
       </nav>
@@ -56,6 +57,7 @@ export function SiteFooter({ page }: { page: "home" | "sponsors" }) {
       </Link>
       <p>Open infrastructure for authorized operations across Internet providers.</p>
       <div className="footer-links">
+        <Link href="/events/">Events</Link>
         <Link href="/charter/">Charter</Link>
         <Link href="/sponsors/">Support</Link>
         <a href={githubUrl} target="_blank" rel="noreferrer">GitHub</a>

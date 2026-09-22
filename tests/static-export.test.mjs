@@ -74,6 +74,22 @@ test("exports the charter summary and links to the canonical charter", async () 
   );
 });
 
+test("exports the events summary and links to the canonical calendar", async () => {
+  const html = await exportedHtml("events/index.html");
+
+  assert.match(html, /Where Seamless Connect should show up next\./);
+  assert.match(html, /CloudFest Americas \+ NamesCon Global/);
+  assert.match(html, /IETF 129/);
+  assert.match(
+    html,
+    /https:\/\/github\.com\/seamless-connect\/docs\/blob\/main\/community\/events\.md/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/events\/"/,
+  );
+});
+
 test("recognizes the founding sponsor and founding team", async () => {
   const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
