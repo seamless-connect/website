@@ -81,6 +81,10 @@ test("exports the events summary and links to the canonical calendar", async () 
   assert.match(html, /NamesCon Global \+ CloudFest Americas/);
   assert.match(html, /ICANN Contracted Parties Summit/);
   assert.match(html, /IETF 130/);
+  assert.match(html, /Agentic Web/);
+  assert.match(html, /MCP Dev Summit Toronto/);
+  assert.match(html, /USENIX Conference on Secure Agentic-AI Systems/);
+  assert.match(html, /Foundation for Agentic Networks and Project NANDA events/);
   assert.match(html, /Inclusion is informational\./);
   assert.doesNotMatch(html, /Very high|Plan for outcomes|should show up next/i);
   assert.match(

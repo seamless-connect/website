@@ -57,10 +57,43 @@
 
 .yearBlock + .yearBlock { margin-top: 82px; }
 
-.yearBlock > h2 {
+.yearBlock > h2,
+.categoryIntro h2 {
   margin: 0 0 22px;
   font-size: clamp(30px, 4vw, 46px);
   letter-spacing: -.04em;
+}
+
+.categoryBlock { margin-top: 92px; }
+
+.categoryIntro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 70px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.categoryIntro .eyebrow { grid-column: 1 / -1; }
+
+.categoryIntro h2 { margin: 0; }
+
+.categoryIntro > p:last-child,
+.categoryNote {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.categoryNote {
+  max-width: 900px;
+  margin-top: 24px;
+}
+
+.categoryNote a {
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .eventList { border-top: 1px solid var(--ink); }
@@ -185,7 +218,8 @@
 
 @media (max-width: 800px) {
   .hero { min-height: 500px; padding-top: 64px; padding-bottom: 64px; }
-  .intro, .watch { grid-template-columns: 1fr; gap: 30px; }
+  .intro, .watch, .categoryIntro { grid-template-columns: 1fr; gap: 30px; }
+  .categoryIntro .eyebrow { grid-column: 1; }
   .event { grid-template-columns: 1fr auto; gap: 18px; }
   .what { grid-column: 1 / -1; grid-row: 2; }
   .status { grid-column: 2; grid-row: 1; }
