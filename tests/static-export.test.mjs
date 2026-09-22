@@ -77,9 +77,12 @@ test("exports the charter summary and links to the canonical charter", async () 
 test("exports the events summary and links to the canonical calendar", async () => {
   const html = await exportedHtml("events/index.html");
 
-  assert.match(html, /Where Seamless Connect should show up next\./);
-  assert.match(html, /CloudFest Americas \+ NamesCon Global/);
-  assert.match(html, /IETF 129/);
+  assert.match(html, /Events across the domain and Internet infrastructure ecosystem\./);
+  assert.match(html, /NamesCon Global \+ CloudFest Americas/);
+  assert.match(html, /ICANN Contracted Parties Summit/);
+  assert.match(html, /IETF 130/);
+  assert.match(html, /Inclusion is informational\./);
+  assert.doesNotMatch(html, /Very high|Plan for outcomes|should show up next/i);
   assert.match(
     html,
     /https:\/\/github\.com\/seamless-connect\/docs\/blob\/main\/community\/events\.md/,

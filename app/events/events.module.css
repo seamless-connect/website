@@ -1,29 +1,27 @@
 .hero {
-  min-height: 560px;
+  min-height: 570px;
   padding: 92px clamp(22px, 6.2vw, 100px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   border-bottom: 1px solid var(--border);
-  background:
-    linear-gradient(135deg, rgba(26, 99, 225, .07), transparent 42%),
-    var(--soft);
+  background: linear-gradient(135deg, rgba(26, 99, 225, .07), transparent 42%), var(--soft);
 }
 
 .hero h1 {
-  max-width: 940px;
+  max-width: 1040px;
   margin: 24px 0 20px;
-  font-size: clamp(54px, 7vw, 104px);
-  line-height: .94;
-  letter-spacing: -.065em;
+  font-size: clamp(50px, 6.5vw, 96px);
+  line-height: .96;
+  letter-spacing: -.062em;
 }
 
 .hero > p:not(:first-child) {
-  max-width: 760px;
+  max-width: 800px;
   margin: 0 0 34px;
   color: var(--muted);
-  font-size: clamp(19px, 2vw, 26px);
+  font-size: clamp(19px, 2vw, 25px);
   line-height: 1.45;
 }
 
@@ -38,7 +36,7 @@
   grid-template-columns: 1.2fr .8fr;
   gap: clamp(40px, 8vw, 120px);
   align-items: end;
-  margin-bottom: 62px;
+  margin-bottom: 86px;
 }
 
 .intro h2 {
@@ -49,28 +47,35 @@
   letter-spacing: -.055em;
 }
 
-.intro > p {
+.intro > p,
+.watch > p {
   margin: 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.7;
 }
 
-.eventList {
-  border-top: 1px solid var(--ink);
+.yearBlock + .yearBlock { margin-top: 82px; }
+
+.yearBlock > h2 {
+  margin: 0 0 22px;
+  font-size: clamp(30px, 4vw, 46px);
+  letter-spacing: -.04em;
 }
 
+.eventList { border-top: 1px solid var(--ink); }
+
 .event {
-  padding: 25px 0;
+  padding: 24px 0;
   display: grid;
-  grid-template-columns: minmax(190px, .7fr) minmax(360px, 1.5fr) 110px;
+  grid-template-columns: minmax(180px, .7fr) minmax(360px, 1.5fr) 110px;
   gap: 30px;
   align-items: start;
   border-bottom: 1px solid var(--border);
 }
 
 .when span,
-.priority {
+.status {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
@@ -88,7 +93,7 @@
 
 .what a {
   color: var(--ink);
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(20px, 2vw, 27px);
   font-weight: 700;
   letter-spacing: -.025em;
 }
@@ -101,14 +106,52 @@
   line-height: 1.55;
 }
 
-.priority {
+.status {
   justify-self: end;
   padding: 7px 9px;
-  border: 1px solid var(--green);
+  border: 1px solid var(--border);
   border-radius: 999px;
-  color: var(--green-dark);
+  color: var(--muted);
   text-align: center;
   white-space: nowrap;
+}
+
+.watch {
+  margin-top: 92px;
+  padding: clamp(30px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 70px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--soft);
+}
+
+.watch h2 {
+  margin: 20px 0 0;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+
+.watch ul {
+  grid-column: 1 / -1;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 36px;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.watch li { border-bottom: 1px solid var(--border); }
+
+.watch li a {
+  padding: 16px 0;
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .canonical {
@@ -142,17 +185,19 @@
 
 @media (max-width: 800px) {
   .hero { min-height: 500px; padding-top: 64px; padding-bottom: 64px; }
-  .intro { grid-template-columns: 1fr; gap: 30px; }
+  .intro, .watch { grid-template-columns: 1fr; gap: 30px; }
   .event { grid-template-columns: 1fr auto; gap: 18px; }
   .what { grid-column: 1 / -1; grid-row: 2; }
-  .priority { grid-column: 2; grid-row: 1; }
+  .status { grid-column: 2; grid-row: 1; }
+  .watch ul { grid-column: 1; }
   .canonical { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 500px) {
-  .hero h1 { font-size: 50px; }
+  .hero h1 { font-size: 47px; }
   .calendar { padding-top: 64px; }
   .event { grid-template-columns: 1fr; }
-  .priority { grid-column: 1; grid-row: 2; justify-self: start; }
+  .status { grid-column: 1; grid-row: 2; justify-self: start; }
   .what { grid-column: 1; grid-row: 3; }
+  .watch ul { grid-template-columns: 1fr; }
 }
