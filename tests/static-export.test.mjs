@@ -135,6 +135,31 @@ test("explains the connection model, role paths, and staged roadmap", async () =
   assert.match(toolkit, /Is Seamless Connect a DNS or domain project\?/);
 });
 
+test("exports the responsive ecosystem architecture map", async () => {
+  const homepage = await exportedHtml("index.html");
+
+  for (const label of [
+    "Requesters",
+    "Domain Owners",
+    "Apps",
+    "Agentic Operators",
+    "Integration surfaces",
+    "Control Planes",
+    "Reseller Platforms",
+    "Authoritative systems",
+    "Registrars",
+    "Authoritative DNS",
+    "Agent Registries",
+    "Update DNS",
+    "DNSSEC",
+    "Register Domain",
+    "Zone Transfer",
+    "Agent Bootstrapping",
+  ]) {
+    assert.match(homepage, new RegExp(label));
+  }
+});
+
 test("keeps competitive positioning vendor-neutral", async () => {
   const pages = await Promise.all([
     exportedHtml("index.html"),

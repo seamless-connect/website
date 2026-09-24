@@ -30,21 +30,51 @@ const founders = [
 ];
 
 function SystemMap() {
+  const requesters = ["Domain Owners", "Apps", "Agentic Operators"];
+  const authoritativeSystems = ["Registrars", "Authoritative DNS", "Agent Registries"];
+  const useCases = ["Update DNS", "DNSSEC", "Register Domain", "Zone Transfer", "Agent Bootstrapping"];
+
   return (
-    <div className="system-map" aria-label="A service provider sends a standard request through Seamless Connect to the customer’s provider">
-      <div className="source-row three-party-row">
-        <div className="map-source"><span className="source-icon">&lt;/&gt;</span><span>Service Provider</span></div>
-        <div className="map-source owner-source"><span className="source-icon owner-icon">✓</span><span>Domain Owner</span></div>
-        <div className="map-source"><span className="source-icon stack-icon">◇</span><span>DNS / Registrar</span></div>
-      </div>
-      <div className="source-connectors three-party-connectors" aria-hidden="true"><i /><i /><i /><span>Standard request + owner authorization</span></div>
-      <div className="seamless-node"><span className="s-mark" aria-hidden="true">S</span><strong>Seamless Connect</strong><span className="node-role">Coordination layer</span></div>
-      <div className="transfer-lanes" aria-hidden="true">
-        <div className="transfer-lane request-lane"><span>Provider operation</span><i /></div>
-        <div className="transfer-lane response-lane"><span>Verified status</span><i /></div>
-      </div>
-      <div className="provider-node"><span className="server-icon" aria-hidden="true"><i /><i /><i /></span><strong>Provider systems &amp; APIs</strong></div>
-    </div>
+    <figure className="system-map" aria-labelledby="system-map-caption">
+      <figcaption id="system-map-caption" className="visually-hidden">Requesters connect through Seamless Connect to authoritative systems, with control planes and reseller platforms as integration surfaces. Common use cases include updating DNS, DNSSEC, domain registration, zone transfer, and agent bootstrapping.</figcaption>
+      <section className="map-group requester-group" aria-labelledby="requester-heading">
+        <h2 id="requester-heading">Requesters</h2>
+        <div className="map-card-stack">{requesters.map((requester) => <div className="map-card" key={requester}>{requester}</div>)}</div>
+      </section>
+      <svg className="map-connector desktop-connector left-connector" viewBox="0 0 100 240" preserveAspectRatio="none" aria-hidden="true">
+        <defs><marker id="arrow-right" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8Z" /></marker></defs>
+        <path className="connector-branch" d="M0 39H28Q40 39 40 51V108" />
+        <path className="connector-branch" d="M0 201H28Q40 201 40 189V132" />
+        <path className="connector-main" d="M0 120H100" markerEnd="url(#arrow-right)" />
+      </svg>
+      <section className="map-center" aria-labelledby="seamless-heading">
+        <div className="seamless-node">
+          <span className="s-mark" aria-hidden="true">S</span>
+          <div><h2 id="seamless-heading">Seamless Connect</h2><p>Discover · Authorize · Coordinate · Verify</p></div>
+        </div>
+        <div className="mobile-flow-line" aria-hidden="true"><span>↓</span></div>
+        <div className="integration-surfaces">
+          <h3>Integration surfaces</h3>
+          <div><span>Control Planes</span><span>Reseller Platforms</span></div>
+        </div>
+      </section>
+      <svg className="map-connector desktop-connector right-connector" viewBox="0 0 100 240" preserveAspectRatio="none" aria-hidden="true">
+        <defs><marker id="arrow-left" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8Z" /></marker></defs>
+        <path className="connector-branch" d="M100 39H72Q60 39 60 51V108" />
+        <path className="connector-branch" d="M100 201H72Q60 201 60 189V132" />
+        <path className="connector-main" d="M100 120H0" markerEnd="url(#arrow-left)" />
+      </svg>
+      <div className="mobile-flow-line requester-flow" aria-hidden="true"><span>↓</span></div>
+      <section className="map-group authority-group" aria-labelledby="authority-heading">
+        <h2 id="authority-heading">Authoritative systems</h2>
+        <div className="map-card-stack">{authoritativeSystems.map((system) => <div className="map-card" key={system}>{system}</div>)}</div>
+      </section>
+      <div className="mobile-flow-line authority-flow" aria-hidden="true"><span>↓</span></div>
+      <section className="use-cases" aria-labelledby="use-cases-heading">
+        <h2 id="use-cases-heading">Common use cases</h2>
+        <div>{useCases.map((useCase) => <span key={useCase}>{useCase}</span>)}</div>
+      </section>
+    </figure>
   );
 }
 
