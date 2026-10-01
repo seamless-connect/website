@@ -30,8 +30,8 @@ test("exports the support page from the canonical sponsor content", async () => 
   assert.ok(title, "SPONSORS.md must contain an H1");
   assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   assert.match(html, /Help sustain shared infrastructure for Internet interoperability\./);
-  assert.match(html, /why-participate/);
-  assert.match(html, /toolkit/);
+  assert.doesNotMatch(html, /why-participate/);
+  assert.doesNotMatch(html, /toolkit/);
   assert.match(html, /href=["']\/funding\/["']/);
   assert.match(
     html,
@@ -57,24 +57,19 @@ test("exports the approved funding statement and links to sponsorship", async ()
   );
 });
 
-test("exports the stakeholder value and champion toolkit pages", async () => {
+test("redirects retired sponsorship resources to the sponsorship page", async () => {
   const [whyParticipate, toolkit] = await Promise.all([
     exportedHtml("sponsors/why-participate/index.html"),
     exportedHtml("sponsors/toolkit/index.html"),
   ]);
 
-  assert.match(whyParticipate, /Invest where interoperability becomes economic value\./);
-  assert.match(whyParticipate, /Protocol choice and commercial opportunity remain open/);
-  assert.match(toolkit, /The 60-second explanation/);
-  assert.match(toolkit, /Technical participation is not a sponsorship benefit\./);
-  assert.match(
-    whyParticipate,
-    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/why-participate\/"/,
-  );
-  assert.match(
-    toolkit,
-    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/toolkit\/"/,
-  );
+  for (const retiredPage of [whyParticipate, toolkit]) {
+    assert.match(retiredPage, /http-equiv="refresh" content="0; url=\/sponsors\/"/);
+    assert.match(
+      retiredPage,
+      /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/"/,
+    );
+  }
 });
 
 test("exports the charter summary and links to the canonical charter", async () => {
@@ -141,11 +136,9 @@ test("recognizes the founding sponsor and founding team", async () => {
 });
 
 test("explains the connection model, role paths, and staged roadmap", async () => {
-  const [homepage, sponsors, whyParticipate, toolkit] = await Promise.all([
+  const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
-    exportedHtml("sponsors/why-participate/index.html"),
-    exportedHtml("sponsors/toolkit/index.html"),
   ]);
 
   assert.match(homepage, /How one connection works/);
@@ -157,8 +150,6 @@ test("explains the connection model, role paths, and staged roadmap", async () =
   assert.match(homepage, /registrar-integration-checklist\.md/);
   assert.ok(homepage.indexOf("Operationalize Domain Connect") < homepage.indexOf("agentic operations"));
   assert.match(sponsors, /Application and Agentic Platforms/);
-  assert.match(whyParticipate, /Value by operation category/);
-  assert.match(toolkit, /Is Seamless Connect a DNS or domain project\?/);
 });
 
 test("exports the responsive ecosystem architecture map", async () => {
@@ -191,8 +182,6 @@ test("keeps competitive positioning vendor-neutral", async () => {
     exportedHtml("index.html"),
     exportedHtml("charter/index.html"),
     exportedHtml("sponsors/index.html"),
-    exportedHtml("sponsors/why-participate/index.html"),
-    exportedHtml("sponsors/toolkit/index.html"),
   ]);
 
   for (const page of pages) {
@@ -205,8 +194,6 @@ test("uses Seamless Connect consistently and identifies FAN governance", async (
     exportedHtml("index.html"),
     exportedHtml("charter/index.html"),
     exportedHtml("sponsors/index.html"),
-    exportedHtml("sponsors/why-participate/index.html"),
-    exportedHtml("sponsors/toolkit/index.html"),
   ]);
 
   for (const page of pages) {

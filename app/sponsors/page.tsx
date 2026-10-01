@@ -153,24 +153,6 @@ export default function SponsorsPage() {
         <p>Help sustain shared infrastructure for Internet interoperability.</p>
       </section>
 
-      <nav className={styles.pageLinks} aria-label="Sponsorship resources">
-        <Link href="/funding/">
-          <span>01</span>
-          <strong>Funding principles</strong>
-          <p>How the commons stays open, broadly available, and sustainable.</p>
-        </Link>
-        <Link href="/sponsors/why-participate/">
-          <span>02</span>
-          <strong>Why participate</strong>
-          <p>How shared infrastructure creates value across the ecosystem.</p>
-        </Link>
-        <Link href="/sponsors/toolkit/">
-          <span>03</span>
-          <strong>Champion toolkit</strong>
-          <p>Talking points and outreach material for community advocates.</p>
-        </Link>
-      </nav>
-
       <article className={styles.document}>
         <MarkdownDocument source={markdown} />
         <div className={styles.sourceNote}>
@@ -188,8 +170,8 @@ export default function SponsorsPage() {
           <p>Sponsor the common layer, contribute engineering, or help another ecosystem participant get involved.</p>
         </div>
         <div className="community-actions">
-          <Link className="button button-light" href="/sponsors/toolkit/">
-            Use the toolkit
+          <Link className="button button-light" href="/funding/">
+            Read funding principles
           </Link>
           <a className="button button-dark-outline" href={githubUrl} target="_blank" rel="noreferrer">
             Join on GitHub <ExternalArrow />
