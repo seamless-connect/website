@@ -100,7 +100,7 @@ export default function WhyParticipatePage() {
           <span>Why fund instead of wait?</span>
           <h2>The buildout determines whether the neutral layer exists.</h2>
           <p>
-            Sponsors provide the concentrated capital needed to establish production infrastructure, provider-supported integrations, reusable coordination capabilities, and ecosystem adoption. Once the service reaches scale, transparent operating fees can sustain it at a lower marginal cost than repeatedly rebuilding or licensing the same foundations.
+            Sponsors provide the concentrated capital needed to establish production infrastructure, provider-supported integrations, reusable coordination capabilities, and ecosystem adoption. Sponsorship is voluntary, and any future paid operational services will remain optional rather than becoming a prerequisite for basic interoperability.
           </p>
         </aside>
 
@@ -113,7 +113,7 @@ export default function WhyParticipatePage() {
         </p>
 
         <div className={styles.inlineActions}>
-          <Link className="button button-primary" href="/sponsors/">View membership</Link>
+          <Link className="button button-primary" href="/sponsors/">View sponsorship</Link>
           <Link className="button button-outline" href="/sponsors/toolkit/">Open the champion toolkit</Link>
         </div>
       </article>
@@ -122,7 +122,7 @@ export default function WhyParticipatePage() {
         <div>
           <p className="eyebrow"><span /> Participate your way</p>
           <h2>Funding, engineering, research, adoption, and advocacy all matter.</h2>
-          <p>Paid membership supports capitalization. Technical participation and protocol work remain open and independent.</p>
+          <p>Sponsorship helps sustain the common layer. Technical participation and protocol work remain open and independent.</p>
         </div>
         <div className="community-actions">
           <a className="button button-light" href="https://github.com/seamless-connect" target="_blank" rel="noreferrer">

@@ -29,7 +29,7 @@ test("exports the support page from the canonical sponsor content", async () => 
   const title = markdown.match(/^#\s+(.+)$/m)?.[1];
   assert.ok(title, "SPONSORS.md must contain an H1");
   assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(html, /Fund the neutral layer for automated Internet operations\./);
+  assert.match(html, /Help sustain shared infrastructure for Internet interoperability\./);
   assert.match(html, /why-participate/);
   assert.match(html, /toolkit/);
   assert.match(html, /href=["']\/funding\/["']/);
@@ -66,7 +66,7 @@ test("exports the stakeholder value and champion toolkit pages", async () => {
   assert.match(whyParticipate, /Invest where interoperability becomes economic value\./);
   assert.match(whyParticipate, /Protocol choice and commercial opportunity remain open/);
   assert.match(toolkit, /The 60-second explanation/);
-  assert.match(toolkit, /Technical participation is not a membership benefit\./);
+  assert.match(toolkit, /Technical participation is not a sponsorship benefit\./);
   assert.match(
     whyParticipate,
     /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/why-participate\/"/,
@@ -123,7 +123,14 @@ test("recognizes the founding sponsor and founding team", async () => {
   ]);
 
   assert.match(sponsors, /Founding Sponsor/);
-  assert.match(sponsors, /Name\.com/);
+  assert.match(sponsors, /Name\.com \/ Identity Digital/);
+  assert.match(sponsors, /Founding Contributors/);
+  assert.match(sponsors, /Cloudflare/);
+  assert.match(sponsors, /DigiCert/);
+  assert.match(sponsors, /Sponsorship is voluntary\./);
+  assert.match(sponsors, /Sponsorship Does Not Buy Interoperability/);
+  assert.match(sponsors, /optional paid operational services/);
+  assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
   assert.match(homepage, /Founding &amp; launch community/);
   assert.match(homepage, /Brian Toresdahl/);
   assert.match(homepage, /Pawel Kowalik/);
@@ -149,7 +156,7 @@ test("explains the connection model, role paths, and staged roadmap", async () =
   assert.match(homepage, /dns-provider-integration-checklist\.md/);
   assert.match(homepage, /registrar-integration-checklist\.md/);
   assert.ok(homepage.indexOf("Operationalize Domain Connect") < homepage.indexOf("agentic operations"));
-  assert.match(sponsors, /architectural extension/);
+  assert.match(sponsors, /Application and Agentic Platforms/);
   assert.match(whyParticipate, /Value by operation category/);
   assert.match(toolkit, /Is Seamless Connect a DNS or domain project\?/);
 });

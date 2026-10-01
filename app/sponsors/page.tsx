@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/sponsors/",
   },
-  title: "Support Seamless Connect",
+  title: "Sponsor Seamless Connect",
   description:
-    "Fund neutral infrastructure for authorized domain operations across providers.",
+    "Help sustain shared infrastructure for Internet interoperability.",
 };
 
 const githubUrl = "https://github.com/seamless-connect";
@@ -20,15 +20,27 @@ const sourceUrl = "https://github.com/seamless-connect/website/blob/main/SPONSOR
 
 function inlineMarkdown(value: string): ReactNode[] {
   return value
-    .split(/(\*\*[^*]+\*\*)/g)
+    .split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g)
     .filter(Boolean)
-    .map((part, index) =>
-      part.startsWith("**") && part.endsWith("**") ? (
-        <strong key={index}>{part.slice(2, -2)}</strong>
-      ) : (
-        part
-      ),
-    );
+    .map((part, index) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
+      }
+
+      const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (link) {
+        const [, label, href] = link;
+        return href.startsWith("/") ? (
+          <Link key={index} href={href}>{label}</Link>
+        ) : (
+          <a key={index} href={href} target="_blank" rel="noreferrer">
+            {label} <ExternalArrow />
+          </a>
+        );
+      }
+
+      return part;
+    });
 }
 
 function MarkdownDocument({ source }: { source: string }) {
@@ -137,8 +149,8 @@ export default function SponsorsPage() {
       <SiteHeader page="sponsors" />
 
       <section className={styles.hero}>
-        <p className="eyebrow"><span /> Support Seamless Connect</p>
-        <p>Fund the neutral layer for automated Internet operations.</p>
+        <p className="eyebrow"><span /> Sponsor Seamless Connect</p>
+        <p>Help sustain shared infrastructure for Internet interoperability.</p>
       </section>
 
       <nav className={styles.pageLinks} aria-label="Sponsorship resources">
@@ -150,7 +162,7 @@ export default function SponsorsPage() {
         <Link href="/sponsors/why-participate/">
           <span>02</span>
           <strong>Why participate</strong>
-          <p>The economic case for services, DNS providers, and registrars.</p>
+          <p>How shared infrastructure creates value across the ecosystem.</p>
         </Link>
         <Link href="/sponsors/toolkit/">
           <span>03</span>
@@ -172,8 +184,8 @@ export default function SponsorsPage() {
       <section className="community-section">
         <div>
           <p className="eyebrow"><span /> Build the neutral foundation with us</p>
-          <h2>Invest in infrastructure for cross-provider domain operations.</h2>
-          <p>Support the two-year buildout, contribute engineering, or help another organization understand the opportunity.</p>
+          <h2>Help build infrastructure everyone can use.</h2>
+          <p>Sponsor the common layer, contribute engineering, or help another ecosystem participant get involved.</p>
         </div>
         <div className="community-actions">
           <Link className="button button-light" href="/sponsors/toolkit/">

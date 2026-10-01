@@ -17,7 +17,7 @@ const talkingPoints = [
   ["The scope", "Seamless Connect supports automated domain operations: configuration, discovery, authorization, verification, lifecycle management, and coordination."],
   ["The starting point", "Domain Connect is first because it is deployed, useful, and ready for standards-track adoption. It demonstrates the model without defining the project’s limit."],
   ["Protocol choice", "Seamless Connect is protocol agnostic. Each operation category should use the suitable open protocol, interface, or coordination pattern."],
-  ["The funding model", "Sponsors capitalize a focused two-year buildout. At scale, transparent usage fees are intended to recover the cost of operating the shared service."],
+  ["The funding model", "Voluntary sponsorships, grants, donations, and other mission-aligned funding sustain the shared infrastructure. Optional paid operational services may be offered without becoming a prerequisite for basic interoperability."],
   ["The market outcome", "Organizations may use Seamless Connect directly or build commercial services on top. The neutral layer enables competition in experience, support, security, analytics, and orchestration."],
   ["Governance", "Seamless Connect is governed through the Foundation for Agentic Networks (FAN), a United States 501(c)(3) nonprofit. Funding does not buy protocol influence, technical approval, preferential interoperability, listing, or exclusive access."],
 ];
@@ -29,7 +29,7 @@ const questions = [
   ["Is Seamless Connect competing with commercial integration products?", "No. Seamless Connect establishes neutral infrastructure that commercial products can use and extend. It should make entry and differentiation easier, not prohibit commercial services."],
   ["Who governs Seamless Connect?", "The project is governed through the Foundation for Agentic Networks (FAN), a United States 501(c)(3) nonprofit committed to openness, neutrality, and public benefit."],
   ["Why not let every company build its own integrations?", "They can, but the ecosystem repeatedly pays for the same foundational work. Shared implementation, registries, and conformance tooling reduce duplicated engineering and make interoperability more dependable."],
-  ["Why sponsor something that will later charge for usage?", "Sponsorship supplies the concentrated capital needed to create the service and reach useful coverage. Later operating fees are intended to sustain the service transparently rather than create lock-in."],
+  ["Will sponsors receive preferential interoperability?", "No. Sponsorship helps sustain the common infrastructure but does not buy protocol influence, technical approval, preferential treatment, exclusive access, or control over technical decisions."],
   ["Does a larger sponsor control the technical roadmap?", "No. Sponsorship supports funding governance and strategic planning, but protocols and technical decisions remain part of the open technical community and applicable standards processes."],
 ];
 
@@ -95,7 +95,7 @@ export default function ToolkitPage() {
           <li><strong>Explain the structural problem.</strong><span>Open protocols need neutral implementation and dependable cross-provider coordination to deliver their full value.</span></li>
           <li><strong>Clarify the scope.</strong><span>Domain Connect is the first implementation, followed by related domain operations; broader architectural extensions come later.</span></li>
           <li><strong>Describe the two-year outcome.</strong><span>Production services, provider-supported integrations, reusable capabilities, open tools, conformance, and a sustainable operating model.</span></li>
-          <li><strong>Offer the right path.</strong><span>Paid membership, engineering, protocol work, integration, testing, research, adoption, or advocacy.</span></li>
+          <li><strong>Offer the right path.</strong><span>Voluntary sponsorship, engineering, protocol work, integration, testing, research, adoption, or advocacy.</span></li>
           <li><strong>Agree on one next step.</strong><span>Identify the internal owner, schedule a technical or sponsorship discussion, or request an introduction.</span></li>
         </ol>
 
@@ -111,7 +111,7 @@ export default function ToolkitPage() {
 
         <aside className={styles.callout}>
           <span>Keep the distinction clear</span>
-          <h2>Technical participation is not a membership benefit.</h2>
+          <h2>Technical participation is not a sponsorship benefit.</h2>
           <p>
             Nobody is buying protocol influence. Sponsorship capitalizes shared implementation, research, and adoption. Technical authority comes from open contribution, evidence, interoperability, and the project’s technical governance.
           </p>
@@ -123,7 +123,7 @@ export default function ToolkitPage() {
         </p>
 
         <div className={styles.inlineActions}>
-          <Link className="button button-primary" href="/sponsors/">View membership</Link>
+          <Link className="button button-primary" href="/sponsors/">View sponsorship</Link>
           <Link className="button button-outline" href="/sponsors/why-participate/">Review stakeholder value</Link>
         </div>
       </article>

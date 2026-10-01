@@ -92,6 +92,18 @@
 
 .document strong { color: var(--ink); }
 
+.document p a {
+  color: var(--blue);
+  font-weight: 650;
+}
+
+.document p a:hover { color: var(--blue-dark); }
+
+.document p a svg {
+  width: 11px;
+  height: 11px;
+}
+
 .document ul {
   margin: 28px 0 34px;
   padding: 0;
