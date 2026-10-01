@@ -36,6 +36,9 @@ sponsor page, canonical URLs, and favicon. The static site is written to `out/`.
 The `/sponsors/` route reads that file at build time, so sponsorship copy should
 be edited in the Markdown file rather than duplicated in the page component.
 
+[`FUNDING.md`](./FUNDING.md) is the canonical source for the project funding
+statement published at `/funding/`.
+
 ## Deployment
 
 The GitHub Actions workflow validates every pull request targeting `main`.
@@ -48,6 +51,7 @@ to GitHub Pages. The custom domain is `seamlessconnect.org`.
 - `public/` — static assets
 - `tests/` — smoke tests for the exported site
 - `SPONSORS.md` — canonical sponsorship content
+- `FUNDING.md` — canonical funding principles
 - `.github/workflows/nextjs.yml` — validation and Pages deployment
 
 ## License

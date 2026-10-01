@@ -32,9 +32,28 @@ test("exports the support page from the canonical sponsor content", async () => 
   assert.match(html, /Fund the neutral layer for automated Internet operations\./);
   assert.match(html, /why-participate/);
   assert.match(html, /toolkit/);
+  assert.match(html, /href=["']\/funding\/["']/);
   assert.match(
     html,
     /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/"/,
+  );
+});
+
+test("exports the approved funding statement and links to sponsorship", async () => {
+  const [html, markdown] = await Promise.all([
+    exportedHtml("funding/index.html"),
+    readFile(new URL("../FUNDING.md", import.meta.url), "utf8"),
+  ]);
+
+  const title = markdown.match(/^#\s+(.+)$/m)?.[1];
+  assert.ok(title, "FUNDING.md must contain an H1");
+  assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.match(html, /Participation and interoperability are not pay-to-play\./);
+  assert.match(html, /help sustain it voluntarily\./);
+  assert.match(html, /href=["']\/sponsors\/["']/);
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/funding\/"/,
   );
 });
 

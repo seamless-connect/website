@@ -142,13 +142,18 @@ export default function SponsorsPage() {
       </section>
 
       <nav className={styles.pageLinks} aria-label="Sponsorship resources">
-        <Link href="/sponsors/why-participate/">
+        <Link href="/funding/">
           <span>01</span>
+          <strong>Funding principles</strong>
+          <p>How the commons stays open, broadly available, and sustainable.</p>
+        </Link>
+        <Link href="/sponsors/why-participate/">
+          <span>02</span>
           <strong>Why participate</strong>
           <p>The economic case for services, DNS providers, and registrars.</p>
         </Link>
         <Link href="/sponsors/toolkit/">
-          <span>02</span>
+          <span>03</span>
           <strong>Champion toolkit</strong>
           <p>Talking points and outreach material for community advocates.</p>
         </Link>
