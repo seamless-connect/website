@@ -11,9 +11,14 @@ async function exportedHtml(pathname) {
 test("exports the homepage and links to support", async () => {
   const html = await exportedHtml("index.html");
 
-  assert.match(html, /The open connection layer for the Internet\./);
+  assert.match(html, /Open infrastructure for cross-provider Internet operations\./);
   assert.match(html, /href=["']\/sponsors\/["']/);
   assert.match(html, />Support</);
+  assert.match(html, />How it works</);
+  assert.match(html, />Integrate</);
+  assert.match(html, />GitHub /);
+  assert.doesNotMatch(html, /wordmark-mark/);
+  assert.doesNotMatch(html, /s-mark/);
   assert.match(
     html,
     /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/?"/,
@@ -111,7 +116,7 @@ test("exports the events summary and links to the canonical calendar", async () 
   );
 });
 
-test("recognizes the founding sponsor and founding team", async () => {
+test("recognizes the founding sponsor, contributors, and nonprofit host", async () => {
   const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
@@ -126,29 +131,33 @@ test("recognizes the founding sponsor and founding team", async () => {
   assert.match(sponsors, /Sponsorship Does Not Buy Interoperability/);
   assert.match(sponsors, /optional paid operational services/);
   assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
-  assert.match(homepage, /Founding &amp; launch community/);
-  assert.match(homepage, /Brian Toresdahl/);
-  assert.match(homepage, /Pawel Kowalik/);
-  assert.match(homepage, /Sami Kerola/);
-  assert.match(homepage, /linkedin\.com\/in\/brian-toresdahl/);
-  assert.match(homepage, /linkedin\.com\/in\/pawelk/);
-  assert.match(homepage, /linkedin\.com\/in\/kerolasa/);
+  assert.match(homepage, /Founding Sponsor/);
+  assert.match(homepage, /Name\.com \/ Identity Digital/);
+  assert.match(homepage, /Founding Contributors/);
+  assert.match(homepage, /Cloudflare/);
+  assert.match(homepage, /DigiCert/);
+  assert.match(homepage, /Hosted by/);
+  assert.match(homepage, /Foundation for Agentic Networks \(FAN\)/);
+  assert.match(homepage, /501\(c\)\(3\) nonprofit governance/);
 });
 
-test("explains the connection model, role paths, and staged roadmap", async () => {
+test("explains the connection model, role paths, and public-commons model", async () => {
   const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
   ]);
 
-  assert.match(homepage, /How one connection works/);
-  assert.match(homepage, /One connection\./);
+  assert.match(homepage, /How it works/);
+  assert.match(homepage, /One open connection\./);
   assert.match(homepage, /does not prescribe one universal execution sequence/);
   assert.doesNotMatch(homepage, /<h3>Discover<\/h3>|<h3>Authorize<\/h3>|<h3>Evaluate<\/h3>|<h3>Persist<\/h3>/);
   assert.match(homepage, /service-provider-integration-checklist\.md/);
   assert.match(homepage, /dns-provider-integration-checklist\.md/);
   assert.match(homepage, /registrar-integration-checklist\.md/);
-  assert.ok(homepage.indexOf("Operationalize Domain Connect") < homepage.indexOf("agentic operations"));
+  assert.ok(homepage.indexOf("Operationalize Domain Connect") < homepage.indexOf("Explore open discovery"));
+  assert.match(homepage, /Participation and interoperability are not pay-to-play\./);
+  assert.match(homepage, /Optional paid operational services/);
+  assert.match(homepage, /not conditioned on sponsorship/);
   assert.match(sponsors, /Application and Agentic Platforms/);
 });
 
@@ -169,9 +178,9 @@ test("exports the responsive ecosystem architecture map", async () => {
     "Agent Registries",
     "Update DNS",
     "DNSSEC",
-    "Register Domain",
-    "Zone Transfer",
-    "Agent Bootstrapping",
+    "Domain registration",
+    "Zone transfer",
+    "Agent bootstrapping",
   ]) {
     assert.match(homepage, new RegExp(label));
   }

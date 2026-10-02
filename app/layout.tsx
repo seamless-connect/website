@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Seamless Connect — The open connection layer for the Internet",
+  title: "Seamless Connect — Open cross-provider Internet infrastructure",
   description:
-    "Open, neutral infrastructure for authorized domain and DNS operations across Internet providers.",
+    "Open, neutral infrastructure for authorized operations across Internet providers, starting with Domain Connect and DNS.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
