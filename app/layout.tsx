@@ -17,9 +17,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Seamless Connect — Open cross-provider Internet infrastructure",
+  title: "Seamless Connect — Open Infrastructure for Domain Operations and Agent Bootstrapping",
   description:
-    "Open, neutral infrastructure for authorized operations across Internet providers, starting with Domain Connect and DNS.",
+    "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+  openGraph: {
+    title: "Seamless Connect — Open Infrastructure for Domain Operations and Agent Bootstrapping",
+    description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+    url: "https://seamlessconnect.org/",
+    siteName: "Seamless Connect",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Seamless Connect — Open Infrastructure for Domain Operations and Agent Bootstrapping",
+    description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

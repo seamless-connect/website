@@ -5,7 +5,9 @@ import styles from "../sponsors/sponsors.module.css";
 export const metadata: Metadata = {
   alternates: { canonical: "/use-cases/" },
   title: "Use Cases | Seamless Connect",
-  description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping.",
+  openGraph: { title: "Use Cases | Seamless Connect", description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.", url: "/use-cases/" },
+  twitter: { card: "summary", title: "Use Cases | Seamless Connect", description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration." },
+  description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
 };
 
 export default function UseCasesPage() {
@@ -18,7 +20,8 @@ export default function UseCasesPage() {
       </section>
       <article className={styles.document}>
         <h1>Use Cases</h1>
-        <p>Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping.</p>
+        <p>Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.</p>
+        <p>Early industry participation includes Name.com (Identity Digital), Cloudflare, and DigiCert.</p>
         <p>These use cases describe the project&apos;s intended workflows. The initial focus is DNS configuration through Domain Connect; broader workflows are proposed or under development. Availability depends on the operation and participating provider integrations. Examples below illustrate protocols, proposals, and provider interfaces a workflow may employ; they do not imply implemented support. IETF drafts are works in progress, not finalized standards.</p>
         <ul aria-label="Use case sections">
           <li><a href="#dns-configuration">DNS Configuration (Domain Connect)</a></li>

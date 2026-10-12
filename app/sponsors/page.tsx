@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   title: "Sponsor Seamless Connect",
   description:
-    "Help sustain shared infrastructure for Internet interoperability.",
+    "Help sustain open infrastructure for domain operations and agent bootstrapping.",
 };
 
 const githubUrl = "https://github.com/seamless-connect";
@@ -150,7 +150,7 @@ export default function SponsorsPage() {
 
       <section className={styles.hero}>
         <p className="eyebrow"><span /> Sponsor Seamless Connect</p>
-        <p>Help sustain shared infrastructure for Internet interoperability.</p>
+        <p>Help sustain open infrastructure for domain operations and agent bootstrapping.</p>
       </section>
 
       <article className={styles.document}>

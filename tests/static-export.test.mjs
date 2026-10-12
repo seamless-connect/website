@@ -11,7 +11,7 @@ async function exportedHtml(pathname) {
 test("exports the homepage and links to support", async () => {
   const html = await exportedHtml("index.html");
 
-  assert.match(html, /Open infrastructure for cross-provider Internet operations\./);
+  assert.match(html, /Open Infrastructure for Domain Operations and Agent Bootstrapping/);
   assert.match(html, /href=["']\/sponsors\/["']/);
   assert.match(html, />Support</);
   assert.match(html, />How it works</);
@@ -34,7 +34,7 @@ test("exports the support page from the canonical sponsor content", async () => 
   const title = markdown.match(/^#\s+(.+)$/m)?.[1];
   assert.ok(title, "SPONSORS.md must contain an H1");
   assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(html, /Help sustain shared infrastructure for Internet interoperability\./);
+  assert.match(html, /Help sustain open infrastructure for domain operations and agent bootstrapping\./);
   assert.doesNotMatch(html, /why-participate/);
   assert.doesNotMatch(html, /toolkit/);
   assert.match(html, /href=["']\/funding\/["']/);
@@ -179,7 +179,7 @@ test("exports the responsive ecosystem architecture map", async () => {
     "Update DNS",
     "DNSSEC",
     "Domain registration",
-    "Zone transfer",
+    "Primary / Secondary DNS",
     "Agent bootstrapping",
   ]) {
     assert.match(homepage, new RegExp(label));
@@ -209,7 +209,8 @@ test("uses Seamless Connect consistently and identifies FAN governance", async (
     assert.match(page, /Seamless Connect/);
     assert.match(page, /Foundation for Agentic Networks/);
     assert.doesNotMatch(page, /SeamlessDNS|Seamless DNS/);
-    assert.doesNotMatch(page, /\bSeamless\b(?! Connect)/);
+    // Hydration payloads may split words across script chunks; check exported markup.
+    assert.doesNotMatch(page.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, ""), /\bSeamless\b(?! Connect)/);
     assert.doesNotMatch(page, /Seamless Foundation|Series of LF Projects/);
   }
 });

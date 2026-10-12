@@ -14,7 +14,7 @@ const earlyUseCases = [
   ["01", "Update DNS", "Operationalize Domain Connect so services can configure customer domains across participating DNS providers."],
   ["02", "DNSSEC", "Coordinate secure, automated workflows between registrars and authoritative DNS providers."],
   ["03", "Domain registration", "Make registration capabilities easier for authorized services and platforms to discover and use."],
-  ["04", "Zone transfer", "Support portable, auditable movement of DNS zones between independently operated providers."],
+  ["04", "Primary / Secondary DNS", "Coordinate primary and secondary DNS zones, authenticated zone transfers, and synchronization across providers."],
   ["05", "Agent bootstrapping", "Explore open discovery and delegated authorization for machine-initiated Internet operations."],
 ];
 
@@ -27,11 +27,11 @@ const publicInfrastructure = [
 function SystemMap() {
   const requesters = ["Domain Owners", "Apps", "Agentic Operators"];
   const authoritativeSystems = ["Registrars", "Authoritative DNS", "Agent Registries"];
-  const useCases = ["Update DNS", "DNSSEC", "Domain registration", "Zone transfer", "Agent bootstrapping"];
+  const useCases = ["Update DNS", "DNSSEC", "Domain registration", "Primary / Secondary DNS", "Agent bootstrapping"];
 
   return (
     <figure className="system-map" aria-labelledby="system-map-caption">
-      <figcaption id="system-map-caption" className="visually-hidden">Requesters connect through Seamless Connect to authoritative systems, with control planes and reseller platforms as integration surfaces. Early use cases include updating DNS, DNSSEC, domain registration, zone transfer, and agent bootstrapping.</figcaption>
+      <figcaption id="system-map-caption" className="visually-hidden">Requesters connect through Seamless Connect to authoritative systems, with control planes and reseller platforms as integration surfaces. Early use cases include updating DNS, DNSSEC, domain registration, primary / secondary DNS, and agent bootstrapping.</figcaption>
       <section className="map-group requester-group" aria-labelledby="requester-heading">
         <h2 id="requester-heading">Requesters</h2>
         <div className="map-card-stack">{requesters.map((requester) => <div className="map-card" key={requester}>{requester}</div>)}</div>
@@ -80,8 +80,9 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <p className="eyebrow"><span /> Open, neutral Internet infrastructure</p>
-          <h1>Open infrastructure for cross-provider Internet operations.</h1>
-          <p className="hero-lede">Seamless Connect gives apps, platforms, registrars, DNS providers, and other Internet services a common way to discover, authorize, coordinate, and verify operations across provider boundaries.</p>
+          <h1>Open Infrastructure for Domain Operations and Agent Bootstrapping</h1>
+          <p className="hero-lede">Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.</p>
+          <p>Early industry participation includes Name.com (Identity Digital), Cloudflare, and DigiCert.</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#how">See how it works <span aria-hidden="true">↓</span></a>
             <a className="button button-outline" href={githubUrl} target="_blank" rel="noreferrer">Build with us on GitHub <ExternalArrow /></a>
@@ -111,7 +112,7 @@ export default function Home() {
       <section className="section integration-section" id="integrate">
         <div className="section-heading split-heading">
           <div><p className="section-index">02 / Starting with domains and DNS</p><h2>Solve concrete interoperability problems first.</h2></div>
-          <p>Domains and DNS are the project&apos;s starting point because they sit at a common boundary between independently operated Internet services.</p>
+          <p>Domains and DNS are the project&apos;s starting point because they sit at a common boundary between independently operated Internet services. The initial focus is DNS configuration through Domain Connect; other use cases are planned or under development. Availability depends on the operation and participating provider integrations.</p>
         </div>
         <div className="early-use-grid">
           {earlyUseCases.map(([index, title, copy]) => <article key={title}><span>{index}</span><h3>{title}</h3><p>{copy}</p>{index === "01" && <strong>Starting point</strong>}</article>)}
@@ -143,7 +144,7 @@ export default function Home() {
       <section className="section ecosystem-section" id="ecosystem">
         <div className="section-heading split-heading">
           <div><p className="section-index">04 / Built with the ecosystem</p><h2>Independent organizations. Shared infrastructure.</h2></div>
-          <p>Seamless Connect is being built in the open with infrastructure providers, implementers, standards contributors, and public-interest partners.</p>
+          <p>Early industry participation includes Name.com (Identity Digital), Cloudflare, and DigiCert. Industry participation does not imply implemented integrations.</p>
         </div>
         <div className="recognition-grid">
           <article><span>Founding Sponsor</span><h3>Name.com / Identity Digital</h3><p>Early financial support, industry experience, implementation participation, and community advocacy.</p></article>

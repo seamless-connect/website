@@ -3,6 +3,16 @@
 The public website for [Seamless Connect](https://seamlessconnect.org/), built with the
 Next.js App Router and published as a static export on GitHub Pages.
 
+## Project
+
+**Open Infrastructure for Domain Operations and Agent Bootstrapping**
+
+Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.
+
+Early industry participation includes Name.com (Identity Digital), Cloudflare, and DigiCert.
+
+[Use Cases & Protocols](https://seamlessconnect.org/use-cases/) · [Canonical project description](https://github.com/seamless-connect/.github/blob/main/PROJECT-DESCRIPTION.md)
+
 ## Requirements
 
 - Node.js 22.13 or newer
