@@ -30,10 +30,14 @@ const footerGroups = [
 ];
 
 export function SiteFooter({ page }: { page: "home" | "sponsors" }) {
+  if (page === "home") return <footer className="preview-footer preview-width">
+    <div className="compact-footer-row"><Link className="wordmark" href="#top">Seamless Connect</Link><p>Open infrastructure for a more interoperable Internet.</p><nav aria-label="Footer navigation"><Link href="/charter/">Charter</Link><a href="https://github.com/seamless-connect/docs" target="_blank" rel="noreferrer">Docs</a><Link href="/use-cases/">Use Cases</Link><Link href="/funding/">Funding</Link><Link href="/events/">Events</Link><a href={githubUrl} target="_blank" rel="noreferrer">GitHub</a></nav></div>
+    <p className="compact-footer-legal">Hosted by the Foundation for Agentic Networks (FAN) under FAN&apos;s United States 501(c)(3) nonprofit governance. Technical participation and basic interoperability are open and are not conditioned on sponsorship.</p>
+  </footer>;
   return (
     <footer>
       <div className="footer-brand">
-        <Link className="wordmark footer-wordmark" href={page === "home" ? "#top" : "/"}>Seamless Connect</Link>
+        <Link className="wordmark footer-wordmark" href="/">Seamless Connect</Link>
         <p>Open infrastructure for authorized operations across Internet providers.</p>
       </div>
       <div className="footer-directory" aria-label="Footer navigation">

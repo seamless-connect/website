@@ -14,7 +14,6 @@ test("exports the homepage and links to support", async () => {
   assert.match(html, /Open Infrastructure for Domain Operations and Agent Bootstrapping/);
   assert.match(html, /href=["']\/sponsors\/["']/);
   assert.match(html, />Community</);
-  assert.match(html, />How it works</);
   assert.match(html, />Docs</);
   assert.match(html, />GitHub /);
   assert.doesNotMatch(html, /wordmark-mark/);
@@ -132,7 +131,7 @@ test("recognizes the founding sponsor, contributors, and nonprofit host", async 
   assert.match(sponsors, /optional paid operational services/);
   assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
   assert.match(homepage, /Founding Sponsor/);
-  assert.match(homepage, /Name\.com \(Identity Digital\)/);
+  assert.match(homepage, /Name\.com<\/span><small>\(Identity Digital\)/);
   assert.match(homepage, /Founding Contributors/);
   assert.match(homepage, /Cloudflare/);
   assert.match(homepage, /DigiCert/);
@@ -150,13 +149,13 @@ test("preserves capability scope and provides a conceptual workflow without inve
   assert.match(markup, /core Internet utility under nonprofit administration/);
   assert.match(markup, /Project-level capability status/);
   for (const [anchor, status] of [["dns-configuration", "Initial focus"], ["dnssec", "Discovery and pilot design"], ["primary-secondary-dns", "Proposed"], ["domain-registration", "Proposed"], ["agent-bootstrapping", "Proposed"]]) {
-    assert.match(markup, new RegExp(`href="/use-cases/#${anchor}"[^]*?</th><td>${status}</td>`));
+    assert.match(markup, new RegExp(`href="/use-cases/#${anchor}"[^]*?</th><td><span[^>]*>${status}</span></td>`));
   }
   assert.match(markup, /not live availability/);
   assert.match(markup, /Industry participation does not imply implemented integrations/);
   assert.match(markup, /Technical participation is independent of sponsorship/);
   assert.match(markup, /A conceptual workflow for an authorized operation/);
-  for (const label of ["Developer / Agent", "Participating Provider", "Verified Result"]) assert.ok(markup.includes(label));
+  for (const label of ["Developer", "or Agent", "Participating Provider", "Verified Result"]) assert.ok(markup.includes(label));
   assert.doesNotMatch(markup, /<pre|<code|system-map|dns-strip|integration-grid/);
   assert.match(markup, /href="https:\/\/github.com\/seamless-connect\/docs"/);
 });
