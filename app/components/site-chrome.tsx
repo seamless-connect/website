@@ -13,10 +13,9 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
     <header className="site-header">
       <Link className="wordmark" href={homeHref} aria-label="Seamless Connect home">Seamless Connect</Link>
       <nav aria-label="Primary navigation">
-        <Link href={page === "home" ? "#how" : "/#how"}>How it works</Link>
-        <Link href={page === "home" ? "#integrate" : "/#integrate"}>Integrate</Link>
         <Link href="/use-cases/">Use Cases</Link>
-        <Link href="/sponsors/">Support</Link>
+        <a href="https://github.com/seamless-connect/docs" target="_blank" rel="noreferrer">Docs</a>
+        <Link href={page === "home" ? "#support" : "/#support"}>Community</Link>
         <a href={githubUrl} target="_blank" rel="noreferrer">GitHub <ExternalArrow /></a>
       </nav>
     </header>

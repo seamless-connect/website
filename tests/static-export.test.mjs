@@ -13,9 +13,9 @@ test("exports the homepage and links to support", async () => {
 
   assert.match(html, /Open Infrastructure for Domain Operations and Agent Bootstrapping/);
   assert.match(html, /href=["']\/sponsors\/["']/);
-  assert.match(html, />Support</);
+  assert.match(html, />Community</);
   assert.match(html, />How it works</);
-  assert.match(html, />Integrate</);
+  assert.match(html, />Docs</);
   assert.match(html, />GitHub /);
   assert.doesNotMatch(html, /wordmark-mark/);
   assert.doesNotMatch(html, /s-mark/);
@@ -132,58 +132,33 @@ test("recognizes the founding sponsor, contributors, and nonprofit host", async 
   assert.match(sponsors, /optional paid operational services/);
   assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
   assert.match(homepage, /Founding Sponsor/);
-  assert.match(homepage, /Name\.com \/ Identity Digital/);
+  assert.match(homepage, /Name\.com \(Identity Digital\)/);
   assert.match(homepage, /Founding Contributors/);
   assert.match(homepage, /Cloudflare/);
   assert.match(homepage, /DigiCert/);
-  assert.match(homepage, /Hosted by/);
+  assert.match(homepage, /Nonprofit administrator/);
   assert.match(homepage, /Foundation for Agentic Networks \(FAN\)/);
   assert.match(homepage, /501\(c\)\(3\) nonprofit governance/);
 });
 
-test("explains the connection model, role paths, and public-commons model", async () => {
-  const [homepage, sponsors] = await Promise.all([
-    exportedHtml("index.html"),
-    exportedHtml("sponsors/index.html"),
-  ]);
-
-  assert.match(homepage, /How it works/);
-  assert.match(homepage, /One open connection\./);
-  assert.match(homepage, /does not prescribe one universal execution sequence/);
-  assert.doesNotMatch(homepage, /<h3>Discover<\/h3>|<h3>Authorize<\/h3>|<h3>Evaluate<\/h3>|<h3>Persist<\/h3>/);
-  assert.match(homepage, /service-provider-integration-checklist\.md/);
-  assert.match(homepage, /dns-provider-integration-checklist\.md/);
-  assert.match(homepage, /registrar-integration-checklist\.md/);
-  assert.ok(homepage.indexOf("Operationalize Domain Connect") < homepage.indexOf("Explore open discovery"));
-  assert.match(homepage, /Participation and interoperability are not pay-to-play\./);
-  assert.match(homepage, /Optional paid operational services/);
-  assert.match(homepage, /not conditioned on sponsorship/);
-  assert.match(sponsors, /Application and Agentic Platforms/);
-});
-
-test("exports the responsive ecosystem architecture map", async () => {
+test("preserves capability scope and provides a conceptual workflow without invented commands", async () => {
   const homepage = await exportedHtml("index.html");
-
-  for (const label of [
-    "Requesters",
-    "Domain Owners",
-    "Apps",
-    "Agentic Operators",
-    "Integration surfaces",
-    "Control Planes",
-    "Reseller Platforms",
-    "Authoritative systems",
-    "Registrars",
-    "Authoritative DNS",
-    "Agent Registries",
-    "Update DNS",
-    "DNSSEC",
-    "Domain registration",
-    "Primary / Secondary DNS",
-    "Agent bootstrapping",
-  ]) {
-    assert.match(homepage, new RegExp(label));
+  const markup = homepage.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+  assert.match(markup, /Domain operations,/);
+  assert.match(markup, /made seamless\./);
+  assert.match(markup, /open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping/);
+  assert.match(markup, /core Internet utility under nonprofit administration/);
+  assert.match(markup, /Project-level capability status/);
+  for (const [anchor, status] of [["dns-configuration", "Initial focus"], ["dnssec", "Discovery and pilot design"], ["primary-secondary-dns", "Proposed"], ["domain-registration", "Proposed"], ["agent-bootstrapping", "Proposed"]]) {
+    assert.match(markup, new RegExp(`href="/use-cases/#${anchor}"[^]*?</th><td>${status}</td>`));
   }
+  assert.match(markup, /not live availability/);
+  assert.match(markup, /Industry participation does not imply implemented integrations/);
+  assert.match(markup, /Technical participation is independent of sponsorship/);
+  assert.match(markup, /A conceptual workflow for an authorized operation/);
+  for (const label of ["Developer / Agent", "Participating Provider", "Verified Result"]) assert.ok(markup.includes(label));
+  assert.doesNotMatch(markup, /<pre|<code|system-map|dns-strip|integration-grid/);
+  assert.match(markup, /href="https:\/\/github.com\/seamless-connect\/docs"/);
 });
 
 test("keeps competitive positioning vendor-neutral", async () => {
