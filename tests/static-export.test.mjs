@@ -217,3 +217,23 @@ test("uses Seamless Connect consistently and identifies FAN governance", async (
 test("exports the favicon", async () => {
   await access(new URL("favicon.svg", outputUrl));
 });
+
+
+test("exports use cases with navigation, discovery deep link, and capability scope", async () => {
+  const [html, homepage] = await Promise.all([
+    exportedHtml("use-cases/index.html"),
+    exportedHtml("index.html"),
+  ]);
+  assert.match(homepage, /href="\/use-cases\/">Use Cases</);
+  assert.match(html, /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/use-cases\/"/);
+  for (const id of ["dns-configuration", "dnssec", "primary-secondary-dns", "domain-registration", "agent-bootstrapping"]) {
+    assert.match(html, new RegExp(`id="${id}"`));
+    assert.match(html, new RegExp(`href="#${id}"`));
+  }
+  assert.match(html, /AXFR\/IXFR/);
+  assert.match(html, /TSIG/);
+  assert.match(html, /DNS-based/);
+  assert.match(html, /Non-DNS/);
+  assert.match(html, /Proposed scope/);
+  assert.match(html, /orchestration are outside this use case/);
+});

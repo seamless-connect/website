@@ -15,6 +15,7 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
       <nav aria-label="Primary navigation">
         <Link href={page === "home" ? "#how" : "/#how"}>How it works</Link>
         <Link href={page === "home" ? "#integrate" : "/#integrate"}>Integrate</Link>
+        <Link href="/use-cases/">Use Cases</Link>
         <Link href="/sponsors/">Support</Link>
         <a href={githubUrl} target="_blank" rel="noreferrer">GitHub <ExternalArrow /></a>
       </nav>
@@ -23,7 +24,7 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
 }
 
 const footerGroups = [
-  { title: "Project", links: [["How it works", "/#how"], ["Charter", "/charter/"], ["Funding principles", "/funding/"], ["Events", "/events/"]] },
+  { title: "Project", links: [["How it works", "/#how"], ["Use Cases", "/use-cases/"], ["Charter", "/charter/"], ["Funding principles", "/funding/"], ["Events", "/events/"]] },
   { title: "Build", links: [["Integration guides", "https://github.com/seamless-connect/docs/tree/main/integration-checklists"], ["Documentation", "https://github.com/seamless-connect/docs"], ["Specification", "https://github.com/seamless-connect/spec"], ["GitHub", githubUrl]] },
   { title: "Participate", links: [["Sponsor the project", "/sponsors/"], ["Funding the commons", "/funding/"], ["Community events", "/events/"], ["Contribute", githubUrl]] },
   { title: "Ecosystem", links: [["Domain Connect", "https://www.domainconnect.org/"], ["IETF DCONN", "https://datatracker.ietf.org/wg/dconn/about/"], ["Foundation for Agentic Networks", "https://www.agenticnet.org/"], ["Identity Digital", "https://www.identity.digital/"]] },
