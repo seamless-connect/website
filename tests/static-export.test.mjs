@@ -92,27 +92,18 @@ test("exports the charter summary and links to the canonical charter", async () 
   );
 });
 
-test("exports the events summary and links to the canonical calendar", async () => {
-  const html = await exportedHtml("events/index.html");
-
-  assert.match(html, /Events across the domain and Internet infrastructure ecosystem\./);
-  assert.match(html, /NamesCon Global \+ CloudFest Americas/);
-  assert.match(html, /ICANN Contracted Parties Summit/);
-  assert.match(html, /IETF 130/);
-  assert.match(html, /Agentic Web/);
-  assert.match(html, /MCP Dev Summit Toronto/);
-  assert.match(html, /USENIX Conference on Secure Agentic-AI Systems/);
-  assert.match(html, /Foundation for Agentic Networks and Project NANDA events/);
-  assert.match(html, /Inclusion is informational\./);
-  assert.doesNotMatch(html, /Very high|Plan for outcomes|should show up next/i);
-  assert.match(
-    html,
-    /https:\/\/github\.com\/seamless-connect\/docs\/blob\/main\/community\/events\.md/,
-  );
-  assert.match(
-    html,
-    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/events\/"/,
-  );
+test("does not publish the personal events reference or link to it", async () => {
+  await assert.rejects(access(new URL("events/index.html", outputUrl)), { code: "ENOENT" });
+  const pages = await Promise.all([
+    exportedHtml("index.html"),
+    exportedHtml("sponsors/index.html"),
+    exportedHtml("charter/index.html"),
+    exportedHtml("funding/index.html"),
+    exportedHtml("use-cases/index.html"),
+  ]);
+  for (const html of pages) {
+    assert.doesNotMatch(html, /href="\/events\/"|community\/events\.md|Industry calendar|ICANN87|NamesCon/);
+  }
 });
 
 test("recognizes the founding sponsor, contributors, and nonprofit host", async () => {
