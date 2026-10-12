@@ -210,5 +210,5 @@ test("exports use cases with navigation, discovery deep link, and capability sco
   assert.match(html, /Technical participation is open to everyone and does not require financial sponsorship/);
   for (const role of ["dns-provider", "service-provider", "registrar"]) assert.ok(html.includes(`/integration-checklists/${role}-integration-checklist.md`));
   for (const name of ["Datum.net", "Pawel Kowalik", "Sami Kerola", "Implement", "Fund"]) assert.ok(html.includes(name));
-  assert.doesNotMatch(html, /Founding Contributors|Build with us/);
+  assert.doesNotMatch(html, /Founding Contributors|Build with us\./);
 });

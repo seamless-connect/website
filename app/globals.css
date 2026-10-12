@@ -1365,15 +1365,59 @@ footer {
  .compact-footer-row { gap: 16px; }.compact-footer-row nav { margin-left: 0; gap: 18px; }
 }
 
-.participation-section { padding-block: 48px; }
-.participation-section h2 { max-width: 780px; }
-.participation-lede { max-width: 780px; color: var(--muted); line-height: 1.55; }
-.participation-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 32px; }
-.participation-path { display: grid; grid-template-rows: auto auto 1fr auto auto; border-top: 1px solid #dbe4ee; padding-top: 24px; justify-items: start; }
-.participation-path h3 { font-size: 24px; margin: 0; }
-.participation-path p { color: var(--muted); line-height: 1.55; }
-.participation-path .participation-purpose { color: var(--ink); font-weight: 600; margin-bottom: 0; }
-.participation-path .button { grid-row: 4; }
-.onboarding-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; font-size: 13px; }
-.participation-note { color: var(--muted); font-size: 14px; margin-top: 28px; }
-@media (max-width: 760px) { .participation-paths { grid-template-columns: 1fr; gap: 28px; } }
+/* Participation cards and compact rhythm follow the supplied visual reference. */
+.preview-home .site-header { height: 64px; }
+.preview-hero { padding-block: 28px 30px; }
+.preview-hero-copy { padding-top: 12px; }
+.preview-hero h1 { margin: 18px 0 16px; font-size: clamp(40px, 4.9vw, 60px); }
+.preview-hero .hero-lede { font-size: 20px; line-height: 1.35; }
+.preview-workflow figcaption { font-size: 9px; margin-bottom: 8px; }
+.operation-intent { padding: 10px 16px; }
+.flow-node { min-height: 48px; }
+.provider-node { min-height: 60px; }
+.flow-connector { height: 24px; line-height: 24px; }
+.workflow-scope { font-size: 10px; margin-top: 10px; }
+.preview-split { padding-block: 28px; }
+.preview-home h2 { font-size: clamp(27px, 3vw, 34px); margin: 12px 0; }
+.preview-split p { font-size: 15px; line-height: 1.4; margin: 10px 0; }
+.operation-table th, .operation-table td { padding-block: 7px; }
+.preview-band, .participation-band { background: linear-gradient(110deg, #f1f9ff, #f6faff); }
+.participation-section { padding-block: 26px 22px; }
+.participation-section h2 { max-width: none; }
+.participation-lede { max-width: 960px; color: var(--muted); line-height: 1.4; font-size: 16px; margin: 0; }
+.participation-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 18px; }
+.participation-path { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto 1fr auto auto; column-gap: 18px; padding: 20px 24px 16px; border: 1px solid #d7ecff; border-radius: 8px; background: #e5f4ff; align-content: start; justify-items: start; }
+.participation-path > :not(.participation-icon) { grid-column: 2; }
+.participation-icon { grid-column: 1; grid-row: 1 / 6; padding-top: 4px; color: #005fe0; }
+.participation-icon svg { width: 38px; height: 38px; }
+.participation-path h3 { font-size: 22px; line-height: 1.2; margin: 0; color: #005fe0; }
+.participation-path p { color: #354f6b; font-size: 14px; line-height: 1.35; margin: 10px 0; }
+.participation-path .participation-purpose { color: #005fe0; font-size: 16px; margin: 0; }
+.participation-path .button { grid-row: 4; min-height: 40px; padding: 8px 18px; font-size: 14px; }
+.fund-path { background: #e3f8ed; border-color: #d5f2e2; }
+.fund-path h3, .fund-path .participation-purpose, .fund-path .participation-icon { color: #087b22; }
+.fund-path .button { background: #087b22; border-color: #087b22; }
+.fund-path .button:hover { background: #056019; }
+.onboarding-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; font-size: 11px; }
+.onboarding-links a { text-decoration: underline; text-underline-offset: 3px; }
+.participation-note { color: var(--muted); font-size: 12px; text-align: center; margin: 12px 0 0; }
+.recognition-layout { grid-template-columns: 1fr 1.4fr; padding-block: 24px; }
+.recognition-layout h2 { font-size: 28px; }
+.recognition-layout p { font-size: 12px; }
+.preview-recognition dt { white-space: normal; margin-bottom: 16px; }
+.preview-recognition > div { padding-inline: 18px; }
+.preview-recognition .cloudflare { color: #ed7900; }
+.preview-recognition .recognition-name { font-size: 22px; }
+.preview-recognition .cloudflare { font-size: 17px; }
+@media (max-width: 760px) {
+ .preview-home .site-header { height: auto; }
+ .preview-hero { padding-block: 24px; }
+ .preview-hero h1 { font-size: clamp(36px, 8.8vw, 56px); }
+ .preview-hero .hero-lede { font-size: 18px; }
+ .participation-paths { grid-template-columns: 1fr; gap: 16px; }
+ .participation-path { padding: 18px; grid-template-columns: 32px 1fr; column-gap: 12px; }
+ .participation-icon svg { width: 30px; height: 30px; }
+ .recognition-layout { grid-template-columns: 1fr; }
+ .preview-recognition .recognition-name { font-size: 20px; }
+ .preview-recognition .cloudflare { font-size: 13px; }
+}
