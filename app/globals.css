@@ -1364,3 +1364,16 @@ footer {
  .community-layout .hero-actions { justify-content: flex-start; }
  .compact-footer-row { gap: 16px; }.compact-footer-row nav { margin-left: 0; gap: 18px; }
 }
+
+.participation-section { padding-block: 48px; }
+.participation-section h2 { max-width: 780px; }
+.participation-lede { max-width: 780px; color: var(--muted); line-height: 1.55; }
+.participation-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 32px; }
+.participation-path { display: grid; grid-template-rows: auto auto 1fr auto auto; border-top: 1px solid #dbe4ee; padding-top: 24px; justify-items: start; }
+.participation-path h3 { font-size: 24px; margin: 0; }
+.participation-path p { color: var(--muted); line-height: 1.55; }
+.participation-path .participation-purpose { color: var(--ink); font-weight: 600; margin-bottom: 0; }
+.participation-path .button { grid-row: 4; }
+.onboarding-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; font-size: 13px; }
+.participation-note { color: var(--muted); font-size: 14px; margin-top: 28px; }
+@media (max-width: 760px) { .participation-paths { grid-template-columns: 1fr; gap: 28px; } }

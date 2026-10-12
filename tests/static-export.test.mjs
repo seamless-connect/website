@@ -114,7 +114,7 @@ test("recognizes the founding sponsor, contributors, and nonprofit host", async 
 
   assert.match(sponsors, /Founding Sponsor/);
   assert.match(sponsors, /Name\.com \/ Identity Digital/);
-  assert.match(sponsors, /Founding Contributors/);
+  assert.match(sponsors, /Committed Project Sponsors/);
   assert.match(sponsors, /Cloudflare/);
   assert.match(sponsors, /DigiCert/);
   assert.match(sponsors, /Sponsorship is voluntary\./);
@@ -123,7 +123,7 @@ test("recognizes the founding sponsor, contributors, and nonprofit host", async 
   assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
   assert.match(homepage, /Founding Sponsor/);
   assert.match(homepage, /Name\.com<\/span><small>\(Identity Digital\)/);
-  assert.match(homepage, /Founding Contributors/);
+  assert.match(homepage, /Committed project sponsors/);
   assert.match(homepage, /Cloudflare/);
   assert.match(homepage, /DigiCert/);
   assert.match(homepage, /Nonprofit administrator/);
@@ -202,4 +202,13 @@ test("exports use cases with navigation, discovery deep link, and capability sco
   assert.match(html, /Non-DNS/);
   assert.match(html, /Proposed scope/);
   assert.match(html, /orchestration are outside this use case/);
+});
+
+ test("offers implementation onboarding and independent financial sponsorship", async () => {
+  const html = (await exportedHtml("index.html")).replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+  assert.match(html, /Help build the Internet’s shared infrastructure/);
+  assert.match(html, /Technical participation is open to everyone and does not require financial sponsorship/);
+  for (const role of ["dns-provider", "service-provider", "registrar"]) assert.ok(html.includes(`/integration-checklists/${role}-integration-checklist.md`));
+  for (const name of ["Datum.net", "Pawel Kowalik", "Sami Kerola", "Implement", "Fund"]) assert.ok(html.includes(name));
+  assert.doesNotMatch(html, /Founding Contributors|Build with us/);
 });

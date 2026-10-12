@@ -4,7 +4,7 @@
 
 Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.
 
-Early industry participation includes Name.com (Identity Digital), Cloudflare, and DigiCert. Name.com (Identity Digital) is the founding sponsor; Cloudflare and DigiCert are founding contributors.
+Name.com (Identity Digital) provided initial funding and is the founding sponsor. Cloudflare, DigiCert, and Datum.net are committed project sponsors. Industry participation does not imply implemented integrations.
 
 The initial focus is DNS configuration through Domain Connect. DNSSEC, Primary / Secondary DNS, Domain Registration, and Agent Bootstrapping describe planned or developing workflows; availability depends on the operation and participating provider integrations. Industry participation does not imply implemented integrations.
 
@@ -95,11 +95,13 @@ Name.com / Identity Digital is the founding sponsor of Seamless Connect, providi
 
 Its support helps establish the shared infrastructure while keeping technical participation and interoperability open to the broader ecosystem.
 
-## Founding Contributors
+## Committed Project Sponsors
 
 ### Cloudflare
 
 ### DigiCert
+
+### Datum.net
 
 ## Participate Your Way
 
