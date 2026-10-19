@@ -5,9 +5,9 @@ import styles from "../sponsors/sponsors.module.css";
 export const metadata: Metadata = {
   alternates: { canonical: "/use-cases/" },
   title: "Use Cases | Seamless Connect",
-  openGraph: { title: "Use Cases | Seamless Connect", description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.", url: "/use-cases/" },
-  twitter: { card: "summary", title: "Use Cases | Seamless Connect", description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration." },
-  description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+  openGraph: { title: "Use Cases | Seamless Connect", description: "Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.", url: "/use-cases/" },
+  twitter: { card: "summary", title: "Use Cases | Seamless Connect", description: "Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect." },
+  description: "Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.",
 };
 
 export default function UseCasesPage() {
@@ -16,12 +16,12 @@ export default function UseCasesPage() {
       <SiteHeader page="sponsors" />
       <section className={styles.hero}>
         <p className="eyebrow"><span /> Use cases</p>
-        <p>One interface. Discrete, authorized operations.</p>
+        <p>Neutral coordination across independently operated providers.</p>
       </section>
       <article className={styles.document}>
         <h1>Use Cases</h1>
-        <p>Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.</p>
-        <p>Early industry participation includes Name.com (Identity Digital), Cloudflare, and DigiCert.</p>
+        <p>Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.</p>
+        <p>Early industry participation includes Name.com (Identity Digital), Cloudflare, DigiCert, Datum.net, and Cloud 66.</p>
         <p>These use cases describe the project&apos;s intended workflows. The initial focus is DNS configuration through Domain Connect; broader workflows are proposed or under development. Availability depends on the operation and participating provider integrations. Examples below illustrate protocols, proposals, and provider interfaces a workflow may employ; they do not imply implemented support. IETF drafts are works in progress, not finalized standards.</p>
         <ul aria-label="Use case sections">
           <li><a href="#dns-configuration">DNS Configuration (Domain Connect)</a></li>
@@ -34,7 +34,7 @@ export default function UseCasesPage() {
         <section aria-labelledby="dns-configuration">
           <h2 id="dns-configuration">DNS Configuration (Domain Connect)</h2>
           <p>Configure DNS records across participating providers using Domain Connect templates and domain-owner authorization. For example, connect a domain to a hosting or email service without manually entering each record.</p>
-          <p><strong>Initial focus:</strong> operationalizing Domain Connect through a common developer interface. Supported templates and operations depend on each provider integration.</p>
+          <p><strong>Initial focus:</strong> operationalizing Domain Connect through shared cross-provider coordination. Supported templates and operations depend on each provider integration.</p>
           <p><strong>Examples of applicable protocols and standards:</strong> <a href="https://github.com/Domain-Connect/spec" target="_blank" rel="noreferrer">Domain Connect</a>, <a href="https://www.rfc-editor.org/rfc/rfc2136.html" target="_blank" rel="noreferrer">DNS UPDATE (RFC 2136)</a>, <a href="https://www.rfc-editor.org/rfc/rfc6749.html" target="_blank" rel="noreferrer">OAuth 2.0 (RFC 6749)</a>.</p>
         </section>
 
@@ -54,7 +54,7 @@ export default function UseCasesPage() {
 
         <section aria-labelledby="domain-registration">
           <h2 id="domain-registration">Domain Registration</h2>
-          <p>Register domains through a common developer interface while keeping the domain owner in control of authorization and provider selection.</p>
+          <p>Coordinate domain registration across participating providers while keeping the domain owner in control of authorization and provider selection.</p>
           <p><strong>Proposed workflow:</strong> coordinate registration requests through participating registrars, subject to their availability, policies, and supported operations.</p>
           <p><strong>Examples of applicable protocols and standards:</strong> EPP (<a href="https://www.rfc-editor.org/rfc/rfc5730.html" target="_blank" rel="noreferrer">RFC 5730</a> / <a href="https://www.rfc-editor.org/rfc/rfc5731.html" target="_blank" rel="noreferrer">RFC 5731</a>), RDAP (<a href="https://www.rfc-editor.org/rfc/rfc9082.html" target="_blank" rel="noreferrer">RFC 9082</a> / <a href="https://www.rfc-editor.org/rfc/rfc9083.html" target="_blank" rel="noreferrer">RFC 9083</a>) — read-only registration data, not registration transactions, <a href="https://docs.name.com/" target="_blank" rel="noreferrer">registrar APIs</a> (provider-specific).</p>
         </section>

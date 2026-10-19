@@ -11,7 +11,7 @@ async function exportedHtml(pathname) {
 test("exports the homepage and links to support", async () => {
   const html = await exportedHtml("index.html");
 
-  assert.match(html, /Open Infrastructure for Domain Operations and Agent Bootstrapping/);
+  assert.match(html, /Open Infrastructure for Cross-Provider Internet Operations/);
   assert.match(html, /href=["']\/sponsors\/["']/);
   assert.match(html, />Community</);
   assert.match(html, />Docs</);
@@ -33,7 +33,7 @@ test("exports the support page from the canonical sponsor content", async () => 
   const title = markdown.match(/^#\s+(.+)$/m)?.[1];
   assert.ok(title, "SPONSORS.md must contain an H1");
   assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(html, /Help sustain open infrastructure for domain operations and agent bootstrapping\./);
+  assert.match(html, /Help sustain neutral cross-provider infrastructure, starting with Domain Connect\./);
   assert.doesNotMatch(html, /why-participate/);
   assert.doesNotMatch(html, /toolkit/);
   assert.match(html, /href=["']\/funding\/["']/);
@@ -136,8 +136,8 @@ test("preserves capability scope and provides a conceptual workflow without inve
   const markup = homepage.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
   assert.match(markup, /Domain operations,/);
   assert.match(markup, /made seamless\./);
-  assert.match(markup, /open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping/);
-  assert.match(markup, /core Internet utility under nonprofit administration/);
+  assert.match(markup, /neutral coordination layer between service providers, DNS providers, and registrars/);
+  assert.match(markup, /Nonprofit administration is provided by/);
   assert.match(markup, /Project-level capability status/);
   for (const [anchor, status] of [["dns-configuration", "Initial focus"], ["dnssec", "Discovery and pilot design"], ["primary-secondary-dns", "Proposed"], ["domain-registration", "Proposed"], ["agent-bootstrapping", "Proposed"]]) {
     assert.match(markup, new RegExp(`href="/use-cases/#${anchor}"[^]*?</th><td><span[^>]*>${status}</span></td>`));
@@ -145,8 +145,8 @@ test("preserves capability scope and provides a conceptual workflow without inve
   assert.match(markup, /not live availability/);
   assert.match(markup, /Industry participation does not imply implemented integrations/);
   assert.match(markup, /Technical participation is independent of sponsorship/);
-  assert.match(markup, /A conceptual workflow for an authorized operation/);
-  for (const label of ["Developer", "or Agent", "Participating Provider", "Verified Result"]) assert.ok(markup.includes(label));
+  assert.match(markup, /A conceptual Domain Connect workflow/);
+  for (const label of ["Service", "Provider", "Participating DNS Provider", "Configuration outcome"]) assert.ok(markup.includes(label));
   assert.doesNotMatch(markup, /<pre|<code|system-map|dns-strip|integration-grid/);
   assert.match(markup, /href="https:\/\/github.com\/seamless-connect\/docs"/);
 });

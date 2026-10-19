@@ -1,8 +1,8 @@
 # Sponsor Seamless Connect
 
-**Help sustain open infrastructure for domain operations and agent bootstrapping.**
+**Help sustain neutral cross-provider infrastructure, starting with Domain Connect.**
 
-Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.
+Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.
 
 Name.com (Identity Digital) provided initial funding and is the founding sponsor. Cloudflare, DigiCert, and Datum.net are committed project sponsors. Industry participation does not imply implemented integrations.
 
@@ -12,13 +12,15 @@ Organizations can contribute through engineering, implementation, adoption, test
 
 **Sponsorship is voluntary.** It is not required to implement Seamless Connect, participate technically, or interoperate with other participants.
 
+Sponsors can contribute financially through [Linux Foundation crowdfunding](https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect). The [Foundation for Agentic Networks (FAN)](https://www.agenticnet.org/), a 501(c)(3) nonprofit, continues to provide nonprofit administration and is also an avenue for supporting academic research and development.
+
 [Read our funding principles →](/funding/)
 
 ## Why Sponsor?
 
 Shared infrastructure creates value across the ecosystem, even when that value shows up differently for each participant.
 
-### Application and Agentic Platforms
+### Service Providers and Application Platforms
 
 Reduce onboarding friction and expand the number of providers your users can work with through a common integration layer.
 
@@ -49,7 +51,7 @@ Financial sponsorship helps fund:
 - Security, reliability, auditability, and operational work
 - Standards participation and implementation feedback
 - Community coordination, documentation, and implementation sprints
-- Exploration of new domain and agentic coordination use cases
+- Development of the planned domain workflows and authorized agent discovery publication use case
 
 Sponsors help make the common layer available to the entire ecosystem—not only to the organizations funding it.
 

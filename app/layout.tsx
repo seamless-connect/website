@@ -17,20 +17,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Seamless Connect — Open Infrastructure for Domain Operations and Agent Bootstrapping",
+  title: "Seamless Connect — Open Infrastructure for Cross-Provider Internet Operations",
   description:
-    "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+    "Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.",
   openGraph: {
-    title: "Seamless Connect — Open Infrastructure for Domain Operations and Agent Bootstrapping",
-    description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+    title: "Seamless Connect — Open Infrastructure for Cross-Provider Internet Operations",
+    description: "Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.",
     url: "https://seamlessconnect.org/",
     siteName: "Seamless Connect",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Seamless Connect — Open Infrastructure for Domain Operations and Agent Bootstrapping",
-    description: "Seamless Connect is an open-source, cross-provider developer CLI for discrete, authorized domain operations and agent bootstrapping. It is maintained as a core Internet utility under nonprofit administration.",
+    title: "Seamless Connect — Open Infrastructure for Cross-Provider Internet Operations",
+    description: "Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.",
   },
   icons: {
     icon: "/favicon.svg",
