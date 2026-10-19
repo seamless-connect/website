@@ -106,7 +106,7 @@ test("does not publish the personal events reference or link to it", async () =>
   }
 });
 
-test("recognizes the founding sponsor, contributors, and nonprofit host", async () => {
+test("preserves sponsorship recognition while separating homepage participation and administration", async () => {
   const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("sponsors/index.html"),
@@ -121,13 +121,19 @@ test("recognizes the founding sponsor, contributors, and nonprofit host", async 
   assert.match(sponsors, /Sponsorship Does Not Buy Interoperability/);
   assert.match(sponsors, /optional paid operational services/);
   assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
-  assert.match(homepage, /Founding Sponsor/);
-  assert.match(homepage, /Name\.com<\/span><small>\(Identity Digital\)/);
-  assert.match(homepage, /Committed project sponsors/);
-  assert.match(homepage, /Cloudflare/);
-  assert.match(homepage, /DigiCert/);
-  assert.match(homepage, /Nonprofit administrator/);
+  assert.doesNotMatch(homepage, /Founding Sponsor|Committed project sponsors|Pawel Kowalik|Sami Kerola/);
+  const participate = await exportedHtml("participate/index.html");
+  const list = /<ul[^>]*aria-label="Industry participants"[^>]*>[\s\S]*?<\/ul>/;
+  assert.equal(homepage.match(list)?.[0], participate.match(list)?.[0]);
+  assert.ok(homepage.match(list));
+  for (const company of ["Cloudflare", "Name.com", "DigiCert", "Datum.net", "Cloud 66"]) {
+    assert.ok(homepage.match(list)[0].includes(`>${company}</li>`));
+  }
+  assert.match(homepage, /Current nonprofit administrator/);
   assert.match(homepage, /Foundation for Agentic Networks \(FAN\)/);
+  assert.match(homepage, /href="https:\/\/www.agenticnet.org\/"/);
+  assert.match(homepage, /href="https:\/\/crowdfunding.linuxfoundation.org\/initiatives\/seamless-connect"/);
+  assert.match(homepage, /The Linux Foundation is not the project administrator/);
   assert.match(homepage, /501\(c\)\(3\) nonprofit governance/);
 });
 
@@ -209,6 +215,6 @@ test("exports use cases with navigation, discovery deep link, and capability sco
   assert.match(html, /Help build the Internet’s shared infrastructure/);
   assert.match(html, /Technical participation is open to everyone and does not require financial sponsorship/);
   for (const role of ["dns-provider", "service-provider", "registrar"]) assert.ok(html.includes(`/integration-checklists/${role}-integration-checklist.md`));
-  for (const name of ["Datum.net", "Pawel Kowalik", "Sami Kerola", "Implement", "Fund"]) assert.ok(html.includes(name));
+  for (const name of ["Datum.net", "Cloud 66", "Implement", "Fund"]) assert.ok(html.includes(name));
   assert.doesNotMatch(html, /Founding Contributors|Build with us\./);
 });

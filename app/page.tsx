@@ -1,4 +1,6 @@
 import Link from "next/link";
+import IndustryParticipants from "./components/industry-participants";
+import styles from "./home-support.module.css";
 import { ExternalArrow, SiteFooter, SiteHeader } from "./components/site-chrome";
 
 const githubUrl = "https://github.com/seamless-connect";
@@ -76,10 +78,29 @@ export default function Home() {
         </div>
         <p className="participation-note">Technical participation is open to everyone and does not require financial sponsorship.</p></div>
       </section>
-      <section className="recognition-band" id="ecosystem" aria-labelledby="recognition-heading"><div className="preview-width preview-split recognition-layout">
-        <div><p className="section-index">Industry participation</p><h2 id="recognition-heading">Building together.</h2><p>Early industry participation includes Name.com (Identity Digital), Cloudflare, DigiCert, Datum.net, and Cloud 66, alongside Domain Connect maintainers Pawel Kowalik and Sami Kerola.</p><p className="home-note">Industry participation does not imply implemented integrations.</p></div>
-        <dl className="preview-recognition"><div><dt>Founding Sponsor · Initial funding</dt><dd><span className="recognition-name namecom">Name.com</span><small>(Identity Digital)</small></dd></div><div><dt>Committed project sponsors</dt><dd><span className="recognition-name cloudflare">Cloudflare</span><span className="recognition-name digicert">DigiCert</span><span className="recognition-name">Datum.net</span></dd></div><div><dt>Nonprofit administrator</dt><dd className="fan-name">Foundation for Agentic Networks (FAN)</dd></div></dl>
+      <section className="recognition-band" id="ecosystem" aria-labelledby="recognition-heading"><div className={`preview-width ${styles.section}`}>
+        <p className="section-index">Industry participation</p>
+        <h2 id="recognition-heading">Building together.</h2>
+        <p className={styles.description}>Technical contributions, integration collaboration, and industry participation to help make cross-provider operations easier.</p>
+        <IndustryParticipants />
+        <p className={styles.note}>Industry participation does not imply implemented integrations.</p>
       </div></section>
+      <section className={`preview-width ${styles.section}`} id="administration-funding" aria-labelledby="administration-heading">
+        <p className="section-index">Administration &amp; funding</p>
+        <h2 id="administration-heading">Supporting the project.</h2>
+        <div className={styles.columns}>
+          <article>
+            <p className="section-index">Current nonprofit administrator</p>
+            <h3><a href="https://www.agenticnet.org/" target="_blank" rel="noreferrer">Foundation for Agentic Networks (FAN)</a></h3>
+            <p>FAN provides the project’s current nonprofit administrative home.</p>
+          </article>
+          <article>
+            <p className="section-index">Crowdfunding channel</p>
+            <h3><a href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Linux Foundation</a></h3>
+            <p>Financial contributions can be made through Linux Foundation crowdfunding. The Linux Foundation is not the project administrator.</p>
+          </article>
+        </div>
+      </section>
       <SiteFooter page="home" />
     </main>
   );
