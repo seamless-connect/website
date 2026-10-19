@@ -15,6 +15,7 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
       <nav aria-label="Primary navigation">
         <Link href="/use-cases/">Use Cases</Link>
         <a href="/participate/">Participate</a>
+        <Link href="/sponsor/">Sponsor</Link>
         <a href="https://github.com/seamless-connect/docs" target="_blank" rel="noreferrer">Docs</a>
         <Link href={page === "home" ? "#support" : "/#support"}>Community</Link>
         <a href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Crowdfund <ExternalArrow /></a>
@@ -25,15 +26,15 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
 }
 
 const footerGroups = [
-  { title: "Project", links: [["How it works", "/#how"], ["Use Cases", "/use-cases/"], ["Charter", "/charter/"], ["Funding principles", "/funding/"]] },
+  { title: "Project", links: [["How it works", "/#how"], ["Use Cases", "/use-cases/"], ["Charter", "/charter/"], ["Funding principles", "/sponsor/"]] },
   { title: "Build", links: [["Integration guides", "https://github.com/seamless-connect/docs/tree/main/integration-checklists"], ["Documentation", "https://github.com/seamless-connect/docs"], ["Specification", "https://github.com/seamless-connect/spec"], ["GitHub", githubUrl]] },
-  { title: "Participate", links: [["Sponsor the project", "/sponsors/"], ["Funding the commons", "/funding/"], ["Contribute", githubUrl]] },
+  { title: "Participate", links: [["Sponsor the project", "/sponsor/"], ["Contribute", githubUrl]] },
   { title: "Ecosystem", links: [["Domain Connect", "https://www.domainconnect.org/"], ["IETF DCONN", "https://datatracker.ietf.org/wg/dconn/about/"], ["Foundation for Agentic Networks", "https://www.agenticnet.org/"], ["Identity Digital", "https://www.identity.digital/"]] },
 ];
 
 export function SiteFooter({ page }: { page: "home" | "sponsors" }) {
   if (page === "home") return <footer className="preview-footer preview-width">
-    <div className="compact-footer-row"><Link className="wordmark" href="#top">Seamless Connect</Link><p>Open infrastructure for a more interoperable Internet.</p><nav aria-label="Footer navigation"><Link href="/charter/">Charter</Link><a href="https://github.com/seamless-connect/docs" target="_blank" rel="noreferrer">Docs</a><Link href="/use-cases/">Use Cases</Link><Link href="/funding/">Funding</Link><a href={githubUrl} target="_blank" rel="noreferrer">GitHub</a></nav></div>
+    <div className="compact-footer-row"><Link className="wordmark" href="#top">Seamless Connect</Link><p>Open infrastructure for a more interoperable Internet.</p><nav aria-label="Footer navigation"><Link href="/charter/">Charter</Link><a href="https://github.com/seamless-connect/docs" target="_blank" rel="noreferrer">Docs</a><Link href="/use-cases/">Use Cases</Link><Link href="/sponsor/">Sponsor</Link><a href={githubUrl} target="_blank" rel="noreferrer">GitHub</a></nav></div>
     <p className="compact-footer-legal">Hosted by the Foundation for Agentic Networks (FAN) under FAN&apos;s United States 501(c)(3) nonprofit governance. Technical participation and basic interoperability are open and are not conditioned on sponsorship.</p>
   </footer>;
   return (

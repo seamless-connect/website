@@ -1,123 +1,25 @@
 # Sponsor Seamless Connect
 
-**Help sustain neutral cross-provider infrastructure, starting with Domain Connect.**
+Voluntary support helps fund shared infrastructure, provider integrations, open tooling, security, documentation, and community coordination.
 
-Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.
+## Administration and contributions
 
-Name.com (Identity Digital) provided initial funding and is the founding sponsor. Cloudflare, DigiCert, and Datum.net are committed project sponsors. Industry participation does not imply implemented integrations.
+The [Foundation for Agentic Networks (FAN)](https://www.agenticnet.org/), a 501(c)(3) nonprofit, is the current nonprofit administrator of Seamless Connect.
 
-The initial focus is DNS configuration through Domain Connect. DNSSEC, Primary / Secondary DNS, Domain Registration, and Agent Bootstrapping describe planned or developing workflows; availability depends on the operation and participating provider integrations. Industry participation does not imply implemented integrations.
+[Linux Foundation crowdfunding](https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect) is the primary channel for financial contributions. The Linux Foundation is not the project administrator.
 
-Organizations can contribute through engineering, implementation, adoption, testing, advocacy, or financial sponsorship. Sponsorship helps fund the shared infrastructure, tooling, integrations, and community work that make broad interoperability possible.
+## Open participation
 
-**Sponsorship is voluntary.** It is not required to implement Seamless Connect, participate technically, or interoperate with other participants.
+**Sponsorship is voluntary.** Technical participation and basic interoperability are open to everyone and do not require financial support. Contributions do not purchase protocol influence, preferential interoperability, conformance approval, or control over technical decisions.
 
-Sponsors can contribute financially through [Linux Foundation crowdfunding](https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect). The [Foundation for Agentic Networks (FAN)](https://www.agenticnet.org/), a 501(c)(3) nonprofit, continues to provide nonprofit administration and is also an avenue for supporting academic research and development.
+Organizations can help through engineering, implementation, testing, documentation, and adoption, as well as sponsorship, grants, and donations.
 
-[Read our funding principles →](/funding/)
+[Explore technical participation →](/participate/)
 
-## Why Sponsor?
+## Our sponsors
 
-Shared infrastructure creates value across the ecosystem, even when that value shows up differently for each participant.
+**Founding Sponsor:** Name.com / Identity Digital provided initial funding.
 
-### Service Providers and Application Platforms
+**Committed Project Sponsors:** Cloudflare, DigiCert, and Datum.net.
 
-Reduce onboarding friction and expand the number of providers your users can work with through a common integration layer.
-
-### DNS Providers
-
-Reduce bespoke integration and support work while making your capabilities easier for services and automated systems to adopt.
-
-### Registrars
-
-Expose registration, DNSSEC, nameserver, transfer, and related capabilities to more services without maintaining a separate integration with every counterpart.
-
-### Infrastructure and Integration Platforms
-
-Build differentiated products—experience, orchestration, analytics, security, support, monitoring, and enterprise services—on top of an open and dependable common layer.
-
-The goal is simple: **share the cost of the common infrastructure, then compete and innovate above it.**
-
-## What Sponsorship Supports
-
-Financial sponsorship helps fund:
-
-- Production shared infrastructure
-- Domain Connect implementation and adoption
-- DNSSEC and registrar–DNS provider coordination
-- Provider integrations and reference implementations
-- Open APIs, SDKs, CLI tools, and libraries
-- Conformance testing and interoperability tooling
-- Security, reliability, auditability, and operational work
-- Standards participation and implementation feedback
-- Community coordination, documentation, and implementation sprints
-- Development of the planned domain workflows and authorized agent discovery publication use case
-
-Sponsors help make the common layer available to the entire ecosystem—not only to the organizations funding it.
-
-## Sponsorship Levels
-
-| Level | Annual Contribution | Participation |
-|---|---:|---|
-| **Founding Premier** | **$250,000** | Highest-level project and launch recognition; participation in sponsor planning and strategic discussions |
-| **Strategic** | **$100,000** | Major recognition and participation in sponsor and project planning |
-| **General** | **$50,000** | Sponsor recognition and participation in sponsor and project activities |
-| **Growth** | **$25,000** | An accessible sponsorship level for growing organizations investing in the shared layer |
-| **Associate** | **$0** | Eligible nonprofit, academic, standards, and public-interest organizations |
-| **Technical Participant** | **$0** | Engineering, implementation, standards, testing, and community participation independent of sponsorship |
-
-Larger organizations that materially benefit from reduced integration and operational costs are encouraged to contribute at a level appropriate to their scale and benefit.
-
-Organizations may also contribute substantial engineering, integrations, testing, infrastructure, or other resources alongside or instead of financial sponsorship.
-
-## Sponsorship Does Not Buy Interoperability
-
-Financial support and technical participation are deliberately separate.
-
-Sponsorship does **not** purchase:
-
-- Protocol influence
-- Preferential technical treatment
-- Exclusive integrations
-- Preferential interoperability
-- Listing or conformance approval
-- Control over project technical decisions
-
-Technical authority comes from contribution, implementation experience, and community participation—not financial sponsorship.
-
-Seamless Connect may eventually offer optional paid operational services such as dedicated infrastructure, support, or service-level commitments. Those services will not be required for basic interoperability or technical participation.
-
-[Read the full Funding the Public Commons statement →](/funding/)
-
-## Founding Sponsor
-
-### Name.com / Identity Digital
-
-Name.com / Identity Digital is the founding sponsor of Seamless Connect, providing early financial support, industry experience, implementation participation, and community advocacy.
-
-Its support helps establish the shared infrastructure while keeping technical participation and interoperability open to the broader ecosystem.
-
-## Committed Project Sponsors
-
-### Cloudflare
-
-### DigiCert
-
-### Datum.net
-
-## Participate Your Way
-
-The project needs more than funding.
-
-Organizations can support Seamless Connect by:
-
-- Implementing and testing integrations
-- Contributing engineering and specifications
-- Participating in interoperability workstreams
-- Deploying Seamless Connect in production
-- Sponsoring shared infrastructure and contributors
-- Helping other ecosystem participants get involved
-
-**Help build infrastructure everyone can use.**
-
-[Join the project on GitHub →](https://github.com/seamless-connect)
+Industry participation does not imply implemented integrations.

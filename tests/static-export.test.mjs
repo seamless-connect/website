@@ -12,7 +12,7 @@ test("exports the homepage and links to support", async () => {
   const html = await exportedHtml("index.html");
 
   assert.match(html, /Open Infrastructure for Cross-Provider Internet Operations/);
-  assert.match(html, /href=["']\/funding\/["']/);
+  assert.match(html, /href=["']\/sponsor\/["']/);
   assert.match(html, />Community</);
   assert.match(html, />Docs</);
   assert.match(html, />GitHub /);
@@ -24,55 +24,32 @@ test("exports the homepage and links to support", async () => {
   );
 });
 
-test("exports the support page from the canonical sponsor content", async () => {
-  const [html, markdown] = await Promise.all([
-    exportedHtml("sponsors/index.html"),
-    readFile(new URL("../SPONSORS.md", import.meta.url), "utf8"),
-  ]);
-
-  const title = markdown.match(/^#\s+(.+)$/m)?.[1];
-  assert.ok(title, "SPONSORS.md must contain an H1");
-  assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(html, /Help sustain neutral cross-provider infrastructure, starting with Domain Connect\./);
-  assert.doesNotMatch(html, /why-participate/);
-  assert.doesNotMatch(html, /toolkit/);
-  assert.match(html, /href=["']\/funding\/["']/);
-  assert.match(
-    html,
-    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/"/,
-  );
+test("exports one concise sponsor page with independent funding and administration", async () => {
+  const html = await exportedHtml("sponsor/index.html");
+  assert.match(html, /<h1>Support the shared infrastructure/);
+  assert.match(html, /href="https:\/\/crowdfunding.linuxfoundation.org\/initiatives\/seamless-connect"/);
+  assert.match(html, /current nonprofit administrator/);
+  assert.match(html, /The Linux Foundation is not the project administrator/);
+  assert.match(html, /Technical participation and basic interoperability are open to everyone/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsor\/"/);
+  assert.doesNotMatch(html, /usage-based|usage fees|optional paid|Founding Premier|Sponsorship Levels|\$250,000|\$25,000/i);
 });
 
-test("exports the approved funding statement and links to sponsorship", async () => {
-  const [html, markdown] = await Promise.all([
-    exportedHtml("funding/index.html"),
-    readFile(new URL("../FUNDING.md", import.meta.url), "utf8"),
-  ]);
-
-  const title = markdown.match(/^#\s+(.+)$/m)?.[1];
-  assert.ok(title, "FUNDING.md must contain an H1");
-  assert.match(html, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(html, /Participation and interoperability are not pay-to-play\./);
-  assert.match(html, /help sustain it voluntarily\./);
-  assert.match(html, /href=["']\/sponsors\/["']/);
-  assert.match(
-    html,
-    /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/funding\/"/,
-  );
+test("exports direct static redirects with visible fallbacks for every retired route", async () => {
+  for (const route of ["funding", "sponsors", "sponsors/why-participate", "sponsors/toolkit"]) {
+    const html = await exportedHtml(`${route}/index.html`);
+    assert.match(html, /http-equiv="refresh" content="0; url=\/sponsor\/"/);
+    assert.match(html, /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsor\/"/);
+    assert.match(html, /<meta name="robots" content="noindex, follow"/);
+    assert.match(html, /<a href="\/sponsor\/">Continue to Sponsor Seamless Connect<\/a>/);
+  }
 });
 
-test("redirects retired sponsorship resources to the sponsorship page", async () => {
-  const [whyParticipate, toolkit] = await Promise.all([
-    exportedHtml("sponsors/why-participate/index.html"),
-    exportedHtml("sponsors/toolkit/index.html"),
-  ]);
-
-  for (const retiredPage of [whyParticipate, toolkit]) {
-    assert.match(retiredPage, /http-equiv="refresh" content="0; url=\/sponsors\/"/);
-    assert.match(
-      retiredPage,
-      /<link rel="canonical" href="https:\/\/seamlessconnect\.org\/sponsors\/"/,
-    );
+test("active pages link directly to the canonical sponsorship route", async () => {
+  for (const route of ["index.html", "sponsor/index.html", "participate/index.html", "charter/index.html", "use-cases/index.html"]) {
+    const html = await exportedHtml(route);
+    assert.match(html, /href="\/sponsor\/"/);
+    assert.doesNotMatch(html, /href="\/(?:funding|sponsors)\/"/);
   }
 });
 
@@ -96,7 +73,7 @@ test("does not publish the personal events reference or link to it", async () =>
   await assert.rejects(access(new URL("events/index.html", outputUrl)), { code: "ENOENT" });
   const pages = await Promise.all([
     exportedHtml("index.html"),
-    exportedHtml("sponsors/index.html"),
+    exportedHtml("sponsor/index.html"),
     exportedHtml("charter/index.html"),
     exportedHtml("funding/index.html"),
     exportedHtml("use-cases/index.html"),
@@ -109,7 +86,7 @@ test("does not publish the personal events reference or link to it", async () =>
 test("preserves sponsorship recognition while separating homepage participation and administration", async () => {
   const [homepage, sponsors] = await Promise.all([
     exportedHtml("index.html"),
-    exportedHtml("sponsors/index.html"),
+    exportedHtml("sponsor/index.html"),
   ]);
 
   assert.match(sponsors, /Founding Sponsor/);
@@ -118,8 +95,7 @@ test("preserves sponsorship recognition while separating homepage participation 
   assert.match(sponsors, /Cloudflare/);
   assert.match(sponsors, /DigiCert/);
   assert.match(sponsors, /Sponsorship is voluntary\./);
-  assert.match(sponsors, /Sponsorship Does Not Buy Interoperability/);
-  assert.match(sponsors, /optional paid operational services/);
+  assert.match(sponsors, /Contributions do not purchase protocol influence/);
   assert.doesNotMatch(sponsors, /usage fees|usage-based|paid membership/i);
   assert.doesNotMatch(homepage, /Founding Sponsor|Committed project sponsors|Pawel Kowalik|Sami Kerola/);
   const participate = await exportedHtml("participate/index.html");
@@ -163,7 +139,7 @@ test("keeps competitive positioning vendor-neutral", async () => {
   const pages = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("charter/index.html"),
-    exportedHtml("sponsors/index.html"),
+    exportedHtml("sponsor/index.html"),
   ]);
 
   for (const page of pages) {
@@ -175,7 +151,7 @@ test("uses Seamless Connect consistently and identifies FAN governance", async (
   const pages = await Promise.all([
     exportedHtml("index.html"),
     exportedHtml("charter/index.html"),
-    exportedHtml("sponsors/index.html"),
+    exportedHtml("sponsor/index.html"),
   ]);
 
   for (const page of pages) {
