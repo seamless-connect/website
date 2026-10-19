@@ -26,14 +26,14 @@ function Icon({ kind }: { kind: "globe" | "people" | "lock" | "cloud" | "databas
 
 function Workflow() {
   return <figure className="preview-workflow" id="how" aria-labelledby="workflow-caption">
-    <figcaption id="workflow-caption">A conceptual workflow for an authorized operation</figcaption>
-    <div className="flow-row"><div className="operation-window"><div className="window-bar" aria-hidden="true"><i /><i /><i /></div><div className="operation-intent"><span>AUTHORIZED OPERATION</span><strong>Configure a domain</strong><p>Discover capabilities<br />Request authorization<br />Coordinate and verify</p></div></div><span className="flow-label">Developer<br />or Agent</span></div>
+    <figcaption id="workflow-caption">A conceptual Domain Connect workflow</figcaption>
+    <div className="flow-row"><div className="operation-window"><div className="window-bar" aria-hidden="true"><i /><i /><i /></div><div className="operation-intent"><span>AUTHORIZED OPERATION</span><strong>Configure a domain</strong><p>Request DNS setup<br />Obtain domain-owner authorization</p></div></div><span className="flow-label">Service<br />Provider</span></div>
     <div className="flow-connector" aria-hidden="true">↓</div>
     <div className="flow-row"><div className="flow-node connect-node">Seamless Connect</div><span className="flow-label">Cross-provider<br />coordination</span></div>
     <div className="flow-connector" aria-hidden="true">↓</div>
-    <div className="flow-row"><div className="flow-node provider-node" aria-label="Participating Provider"><Icon kind="cloud" /><Icon kind="database" /><Icon kind="server" /></div><span className="flow-label">Participating<br />Provider</span></div>
+    <div className="flow-row"><div className="flow-node provider-node" aria-label="Participating DNS Provider"><Icon kind="cloud" /><Icon kind="database" /><Icon kind="server" /></div><span className="flow-label">DNS<br />Provider</span></div>
     <div className="flow-connector" aria-hidden="true">↓</div>
-    <div className="flow-row"><div className="flow-node result-node"><span aria-hidden="true">✓</span> Verified Result</div><span className="flow-label">Confirmed<br />operation</span></div>
+    <div className="flow-row"><div className="flow-node result-node"><span aria-hidden="true">✓</span> Configuration outcome</div><span className="flow-label">Status and<br />verification</span></div>
     <p className="workflow-scope">Illustrative flow. Availability and verification depend on the operation and participating provider integrations.</p>
   </figure>;
 }
@@ -45,17 +45,17 @@ export default function Home() {
       <section className="preview-hero preview-width" id="top" aria-labelledby="home-title">
         <div className="preview-hero-copy"><p className="section-index">Open source · Cross-provider · Nonprofit</p>
           <h1 id="home-title">Domain operations,<br />made seamless.</h1>
-          <p className="hero-lede">An open-source developer CLI for discrete, authorized domain operations and agent bootstrapping across providers.</p>
+          <p className="hero-lede">Seamless Connect is an open-source, nonprofit infrastructure project providing a neutral coordination layer between service providers, DNS providers, and registrars, initially focused on DNS configuration through Domain Connect.</p>
           <div className="hero-actions"><a className="button button-primary" href={githubUrl} target="_blank" rel="noreferrer">Explore GitHub <ExternalArrow /></a><Link className="home-text-link" href="/use-cases/">See use cases <span aria-hidden="true">→</span></Link></div>
         </div>
         <Workflow />
       </section>
       <section className="preview-band" id="integrate" aria-labelledby="operations-heading"><div className="preview-width preview-split operations-layout">
-        <div><p className="section-index">Use cases</p><h2 id="operations-heading">One interface. Multiple operations.</h2><p>Seamless Connect begins with DNS configuration through Domain Connect, with additional workflows planned or developing.</p><Link className="home-text-link" href="/use-cases/">Explore use cases and protocols <span aria-hidden="true">→</span></Link><p className="home-note">Project-level statuses, not live availability. Availability depends on the operation and participating provider integrations.</p></div>
+        <div><p className="section-index">Use cases</p><h2 id="operations-heading">Integrate once. Reach across providers.</h2><p>Seamless Connect begins with DNS configuration through Domain Connect. The aim is to let participating providers integrate once to reach a broader ecosystem, reducing individual integrations with every counterpart.</p><Link className="home-text-link" href="/use-cases/">Explore use cases and protocols <span aria-hidden="true">→</span></Link><p className="home-note">Project-level statuses, not live availability. Availability depends on the operation and participating provider integrations.</p></div>
         <table className="operation-table"><caption className="visually-hidden">Project-level capability status</caption><thead><tr><th scope="col">Operation</th><th scope="col">Status</th></tr></thead><tbody>{operations.map(([name, status, anchor, tone]) => <tr key={name}><th scope="row"><Link href={`/use-cases/#${anchor}`}>{name}</Link>{anchor === "dns-configuration" && <small>(via Domain Connect)</small>}</th><td><span className={`status-badge status-${tone}`}>{status}</span></td></tr>)}</tbody></table>
       </div></section>
       <section className="preview-width preview-split infrastructure-layout" id="public-infrastructure" aria-labelledby="open-heading">
-        <div><p className="section-index">Open infrastructure</p><h2 id="open-heading">Built for the Internet,<br />not a single provider.</h2><p>Seamless Connect is developed openly as neutral Internet infrastructure. It supports interoperability across competing providers while preserving their authority over authorization, policy, and execution.</p><p>It is maintained as a core Internet utility under nonprofit administration by the <a href="https://www.agenticnet.org/" target="_blank" rel="noreferrer">Foundation for Agentic Networks (FAN)</a>. Technical participation is independent of sponsorship.</p><Link className="home-text-link" href="/charter/">Read the project charter <span aria-hidden="true">→</span></Link></div>
+        <div><p className="section-index">Open infrastructure</p><h2 id="open-heading">Built for the Internet,<br />not a single provider.</h2><p>Seamless Connect is developed openly as neutral Internet infrastructure. It supports interoperability across competing providers while preserving their authority over authorization, policy, and execution.</p><p>Nonprofit administration is provided by the <a href="https://www.agenticnet.org/" target="_blank" rel="noreferrer">Foundation for Agentic Networks (FAN)</a>. Technical participation is independent of sponsorship.</p><p>Provider workflows, APIs, CLIs, and authorized software agents are ways to access the coordination service.</p><Link className="home-text-link" href="/charter/">Read the project charter <span aria-hidden="true">→</span></Link></div>
         <ul className="infrastructure-principles"><li><Icon kind="globe" /><div><h3>Open</h3><p>Developed in the open with a transparent process.</p></div></li><li><Icon kind="people" /><div><h3>Neutral</h3><p>Designed to work across competing providers.</p></div></li><li><Icon kind="lock" /><div><h3>Interoperable</h3><p>Built on open standards and common interfaces.</p></div></li></ul>
       </section>
       <section className="participation-band" id="support" aria-labelledby="community-heading">
@@ -69,7 +69,7 @@ export default function Home() {
         <p className="participation-note">Technical participation is open to everyone and does not require financial sponsorship.</p></div>
       </section>
       <section className="recognition-band" id="ecosystem" aria-labelledby="recognition-heading"><div className="preview-width preview-split recognition-layout">
-        <div><p className="section-index">Industry participation</p><h2 id="recognition-heading">Building together.</h2><p>Supported by industry sponsors and Domain Connect maintainers Pawel Kowalik and Sami Kerola.</p><p className="home-note">Industry participation does not imply implemented integrations.</p></div>
+        <div><p className="section-index">Industry participation</p><h2 id="recognition-heading">Building together.</h2><p>Early industry participation includes Name.com (Identity Digital), Cloudflare, DigiCert, Datum.net, and Cloud 66, alongside Domain Connect maintainers Pawel Kowalik and Sami Kerola.</p><p className="home-note">Industry participation does not imply implemented integrations.</p></div>
         <dl className="preview-recognition"><div><dt>Founding Sponsor · Initial funding</dt><dd><span className="recognition-name namecom">Name.com</span><small>(Identity Digital)</small></dd></div><div><dt>Committed project sponsors</dt><dd><span className="recognition-name cloudflare">Cloudflare</span><span className="recognition-name digicert">DigiCert</span><span className="recognition-name">Datum.net</span></dd></div><div><dt>Nonprofit administrator</dt><dd className="fan-name">Foundation for Agentic Networks (FAN)</dd></div></dl>
       </div></section>
       <SiteFooter page="home" />
