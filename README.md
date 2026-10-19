@@ -42,12 +42,15 @@ sponsor page, canonical URLs, and favicon. The static site is written to `out/`.
 
 ## Sponsorship content
 
-[`SPONSORS.md`](./SPONSORS.md) is the canonical source for sponsorship details.
-The `/sponsors/` route reads that file at build time, so sponsorship copy should
-be edited in the Markdown file rather than duplicated in the page component.
+[`SPONSORS.md`](./SPONSORS.md) is the single source for the concise sponsorship
+page at `/sponsor/`, read at build time. Linux Foundation crowdfunding is the
+primary financial contribution channel; FAN remains the current nonprofit
+administrator. Technical participation is independent of funding.
 
-[`FUNDING.md`](./FUNDING.md) is the canonical source for the project funding
-statement published at `/funding/`.
+`/funding/`, `/sponsors/`, and the retired sponsorship subpages export static
+HTML redirects directly to `/sponsor/`, with canonical URLs, noindex metadata,
+and visible fallback links. They work without JavaScript or server redirects.
+[`FUNDING.md`](./FUNDING.md) points to the consolidated source.
 
 ## Deployment
 
@@ -61,7 +64,7 @@ to GitHub Pages. The custom domain is `seamlessconnect.org`.
 - `public/` — static assets
 - `tests/` — smoke tests for the exported site
 - `SPONSORS.md` — canonical sponsorship content
-- `FUNDING.md` — canonical funding principles
+- `FUNDING.md` — pointer to consolidated sponsorship content
 - `.github/workflows/nextjs.yml` — validation and Pages deployment
 
 ## License

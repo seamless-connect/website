@@ -1,0 +1,34 @@
+.hero {
+  padding: 64px max(22px, calc((100% - 1060px) / 2));
+  border-bottom: 1px solid var(--border);
+  background: var(--soft);
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 24px 0;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+
+.hero > p:not(:first-child) {
+  max-width: 640px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero > a { max-width: 100%; }
+
+.sponsors {
+  width: min(100% - 44px, 1060px);
+  margin: 0 auto;
+  padding-bottom: 72px;
+}
+
+.sponsors > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}

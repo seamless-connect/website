@@ -103,7 +103,8 @@ export default function Home() {
             <p className="section-index">Crowdfunding channel</p>
             <h3><a href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Linux Foundation</a></h3>
             <p>Financial contributions can be made through Linux Foundation crowdfunding. The Linux Foundation is not the project administrator.</p>
-            <a className="home-text-link" href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Visit crowdfunding portal <span aria-hidden="true">→</span></a>
+            <a className="home-text-link" href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Contribute through Linux Foundation <span aria-hidden="true">→</span></a>
+            <p><Link className="home-text-link" href="/sponsor/">About sponsorship <span aria-hidden="true">→</span></Link></p>
           </article>
         </div>
       </section>
