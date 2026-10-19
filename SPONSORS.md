@@ -16,10 +16,12 @@ Organizations can help through engineering, implementation, testing, documentati
 
 [Explore technical participation →](/participate/)
 
-## Our sponsors
+## Founding Sponsors
 
-**Founding Sponsor:** Name.com / Identity Digital provided initial funding.
-
-**Committed Project Sponsors:** Cloudflare, DigiCert, and Datum.net.
+- Cloudflare
+- Name.com
+- DigiCert
+- Datum.net
+- Cloud 66
 
 Industry participation does not imply implemented integrations.

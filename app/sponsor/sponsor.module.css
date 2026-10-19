@@ -20,3 +20,15 @@
 }
 
 .hero > a { max-width: 100%; }
+
+.sponsors {
+  width: min(100% - 44px, 1060px);
+  margin: 0 auto;
+  padding-bottom: 72px;
+}
+
+.sponsors > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}

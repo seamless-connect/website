@@ -89,9 +89,7 @@ test("preserves sponsorship recognition while separating homepage participation 
     exportedHtml("sponsor/index.html"),
   ]);
 
-  assert.match(sponsors, /Founding Sponsor/);
-  assert.match(sponsors, /Name\.com \/ Identity Digital/);
-  assert.match(sponsors, /Committed Project Sponsors/);
+  assert.match(sponsors, /Founding Sponsors/);
   assert.match(sponsors, /Cloudflare/);
   assert.match(sponsors, /DigiCert/);
   assert.match(sponsors, /Sponsorship is voluntary\./);
@@ -102,6 +100,9 @@ test("preserves sponsorship recognition while separating homepage participation 
   const list = /<ul[^>]*aria-label="Industry participants"[^>]*>[\s\S]*?<\/ul>/;
   assert.equal(homepage.match(list)?.[0], participate.match(list)?.[0]);
   assert.ok(homepage.match(list));
+  const sponsorList = /<ul[^>]*aria-label="Founding sponsors"[^>]*>[\s\S]*?<\/ul>/;
+  assert.equal(sponsors.match(sponsorList)?.[0].replace('Founding sponsors', 'Industry participants'), homepage.match(list)?.[0]);
+  assert.doesNotMatch(sponsors, /Our sponsors|Committed Project Sponsors/);
   for (const company of ["Cloudflare", "Name.com", "DigiCert", "Datum.net", "Cloud 66"]) {
     assert.ok(homepage.match(list)[0].includes(`>${company}</li>`));
   }

@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { ReactNode } from "react";
 import { ExternalArrow, SiteFooter, SiteHeader } from "../components/site-chrome";
+import IndustryParticipants from "../components/industry-participants";
 import sponsorStyles from "./sponsor.module.css";
 import styles from "../sponsors/sponsors.module.css";
 
@@ -143,6 +144,9 @@ function MarkdownDocument({ source }: { source: string }) {
 export default function SponsorsPage() {
   const markdown = readFileSync(path.join(process.cwd(), "SPONSORS.md"), "utf8");
 
+  const [body, sponsors] = markdown.split("## Founding Sponsors");
+  const companies = sponsors.split("\n").filter((line) => line.startsWith("- ")).map((line) => line.slice(2));
+
   return (
     <main>
       <SiteHeader page="sponsors" />
@@ -155,14 +159,19 @@ export default function SponsorsPage() {
       </section>
 
       <article className={styles.document}>
-        <MarkdownDocument source={markdown} />
+        <MarkdownDocument source={body} />
+      </article>
+      <section className={sponsorStyles.sponsors} aria-labelledby="founding-sponsors-heading">
+        <h2 className="section-index" id="founding-sponsors-heading">Founding Sponsors</h2>
+        <IndustryParticipants companies={companies} label="Founding sponsors" />
+        <p>Industry participation does not imply implemented integrations.</p>
         <div className={styles.sourceNote}>
           <span>Open source</span>
           <a href={sourceUrl} target="_blank" rel="noreferrer">
             View this page&apos;s source on GitHub <ExternalArrow />
           </a>
         </div>
-      </article>
+      </section>
 
       <SiteFooter page="sponsors" />
     </main>
