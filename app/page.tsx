@@ -26,15 +26,23 @@ function Icon({ kind }: { kind: "globe" | "people" | "lock" | "cloud" | "databas
 
 function Workflow() {
   return <figure className="preview-workflow" id="how" aria-labelledby="workflow-caption">
-    <figcaption id="workflow-caption">A conceptual Domain Connect workflow</figcaption>
-    <div className="flow-row"><div className="operation-window"><div className="window-bar" aria-hidden="true"><i /><i /><i /></div><div className="operation-intent"><span>AUTHORIZED OPERATION</span><strong>Configure a domain</strong><p>Request DNS setup<br />Obtain domain-owner authorization</p></div></div><span className="flow-label">Service<br />Provider</span></div>
-    <div className="flow-connector" aria-hidden="true">↓</div>
-    <div className="flow-row"><div className="flow-node connect-node">Seamless Connect</div><span className="flow-label">Cross-provider<br />coordination</span></div>
-    <div className="flow-connector" aria-hidden="true">↓</div>
-    <div className="flow-row"><div className="flow-node provider-node" aria-label="Participating DNS Provider"><Icon kind="cloud" /><Icon kind="database" /><Icon kind="server" /></div><span className="flow-label">DNS<br />Provider</span></div>
-    <div className="flow-connector" aria-hidden="true">↓</div>
-    <div className="flow-row"><div className="flow-node result-node"><span aria-hidden="true">✓</span> Configuration outcome</div><span className="flow-label">Status and<br />verification</span></div>
-    <p className="workflow-scope">Illustrative flow. Availability and verification depend on the operation and participating provider integrations.</p>
+    <figcaption id="workflow-caption">Integrate once. Connect across providers.</figcaption>
+    <p className="visually-hidden">Conceptual network: multiple service providers connect through Seamless Connect, a cross-provider coordination hub, to DNS providers and registrars.</p>
+    <div className="provider-network">
+      <svg className="network-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M24 17H28L36 50H40M24 50H40M24 83H28L36 50M60 50H64L72 17H76M60 50H76M64 50L72 83H76" />
+      </svg>
+      <div className="network-providers network-services" role="group" aria-label="Generic service providers">
+        {["A", "B", "C"].map((provider) => <div className="network-node" key={provider}>Service Provider<span>{provider}</span></div>)}
+      </div>
+      <div className="network-node network-hub"><strong>Seamless Connect</strong><span>Cross-provider coordination</span></div>
+      <div className="network-providers network-infrastructure" role="group" aria-label="Generic infrastructure providers">
+        <div className="network-node">DNS Provider<span>A</span></div>
+        <div className="network-node">DNS Provider<span>B</span></div>
+        <div className="network-node">Registrar</div>
+      </div>
+    </div>
+    <p className="workflow-scope">Conceptual network, not live integrations. Availability and verification depend on the operation and participating provider integrations.</p>
   </figure>;
 }
 

@@ -1268,24 +1268,15 @@ footer {
 .preview-hero .hero-lede { max-width: 620px; font-size: 21px; line-height: 1.45; color: var(--muted); }
 .preview-workflow { margin: 0; min-width: 0; }
 .preview-workflow figcaption { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
-.flow-row { display: grid; grid-template-columns: minmax(0, 1fr) 116px; align-items: center; gap: 20px; }
-.flow-label { font-size: 13px; line-height: 1.45; color: var(--muted); position: relative; }
-.flow-label::before { content: ""; position: absolute; right: calc(100% + 8px); top: 50%; width: 22px; height: 1px; background: #dbe5f0; }
-.operation-window { color: #f4f7ff; background: #202e3c; border-radius: 9px; overflow: hidden; box-shadow: 0 6px 16px #12263f24; }
-.window-bar { height: 24px; background: #2b3b4a; display: flex; align-items: center; gap: 6px; padding-left: 12px; }
-.window-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ff675e; }
-.window-bar i:nth-child(2) { background: #f8c642; }.window-bar i:nth-child(3) { background: #51ca69; }
-.operation-intent { padding: 14px 18px; font-family: var(--font-mono); }
-.operation-intent > span { color: #aabccc; font-size: 9px; letter-spacing: .08em; }
-.operation-intent strong { display: block; font-size: 14px; margin: 8px 0; font-weight: 500; }
-.operation-intent p { font-size: 11px; line-height: 1.5; margin: 0; color: #a1d6b2; }
-.flow-connector { width: calc(100% - 136px); text-align: center; height: 28px; color: #536982; font-size: 26px; line-height: 28px; font-weight: 300; }
-.flow-node { min-height: 56px; border: 1px solid #d4dfea; border-radius: 8px; font-size: 14px; font-weight: 550; display: flex; align-items: center; justify-content: center; gap: 16px; margin-inline: 24px; }
-.connect-node { color: #004bad; background: #deecff; border-color: #b4d5ff; }
-.provider-node { background: #fcfdff; min-height: 70px; color: #52657b; }
-.provider-node svg { width: 34px; height: 34px; }
-.result-node { background: #def5e8; color: #126d29; border-color: #bceacf; }
-.result-node > span { border-radius: 50%; background: #18872d; color: white; width: 24px; height: 24px; text-align: center; line-height: 24px; }
+.provider-network { position: relative; display: grid; grid-template-columns: 24% 28% 24%; justify-content: space-between; align-items: center; min-height: 270px; }
+.network-lines { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #c5d5e8; stroke-width: 1; }
+.network-lines path { vector-effect: non-scaling-stroke; }
+.network-providers { display: grid; grid-template-rows: repeat(3, 1fr); height: 270px; align-items: center; }
+.network-node { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 66px; padding: 10px 6px; border: 1px solid #d4dfea; border-radius: 8px; background: #fcfdff; color: #304b6c; font-size: 12px; line-height: 1.4; text-align: center; overflow-wrap: anywhere; }
+.network-node > span { font-size: 11px; color: var(--muted); }
+.network-services .network-node { background: #f5f8fc; }
+.network-hub { min-height: 108px; background: #deecff; border-color: #b4d5ff; color: #004bad; gap: 8px; }
+.network-hub strong { font-size: 14px; font-weight: 600; }
 .workflow-scope { color: var(--muted); font-size: 11px; line-height: 1.5; margin: 16px 0 0; }
 .preview-band { background: #f5f8fc; }
 .preview-split { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: center; padding-block: 40px; }
@@ -1332,10 +1323,6 @@ footer {
 @media (max-width: 1100px) {
  .preview-width { width: calc(100% - 64px); }
  .preview-hero { gap: 28px; grid-template-columns: 1.25fr 1fr; }
- .flow-row { grid-template-columns: minmax(0, 1fr) 96px; gap: 16px; }
- .flow-connector { width: calc(100% - 112px); }
- .flow-label { font-size: 12px; }
- .flow-node { margin-inline: 12px; }
  .preview-split { gap: 32px; }
  .preview-recognition > div { padding-inline: 14px; }
  .preview-recognition dt { white-space: normal; }
@@ -1352,8 +1339,6 @@ footer {
  .preview-hero .hero-lede { font-size: 18px; }
  .preview-home .hero-actions { flex-wrap: wrap; }
  .preview-workflow { width: min(100%, 470px); margin: auto; }
- .flow-row { grid-template-columns: minmax(0, 1fr) 104px; }
- .flow-connector { width: calc(100% - 120px); }
  .preview-split { grid-template-columns: 1fr; padding-block: 32px; gap: 24px; }
  .infrastructure-principles { border-left: 0; border-top: 1px solid #dbe4ee; padding: 24px 0 0; gap: 24px; }
  .operation-table th, .operation-table td { padding-inline: 4px; }
@@ -1372,10 +1357,6 @@ footer {
 .preview-hero h1 { margin: 18px 0 16px; font-size: clamp(40px, 4.9vw, 60px); }
 .preview-hero .hero-lede { font-size: 20px; line-height: 1.35; }
 .preview-workflow figcaption { font-size: 9px; margin-bottom: 8px; }
-.operation-intent { padding: 10px 16px; }
-.flow-node { min-height: 48px; }
-.provider-node { min-height: 60px; }
-.flow-connector { height: 24px; line-height: 24px; }
 .workflow-scope { font-size: 10px; margin-top: 10px; }
 .preview-split { padding-block: 28px; }
 .preview-home h2 { font-size: clamp(27px, 3vw, 34px); margin: 12px 0; }
@@ -1420,4 +1401,18 @@ footer {
  .recognition-layout { grid-template-columns: 1fr; }
  .preview-recognition .recognition-name { font-size: 20px; }
  .preview-recognition .cloudflare { font-size: 13px; }
+}
+
+/* Stack the same network on narrow screens; cards retain their reading order. */
+@media (max-width: 480px) {
+  .provider-network { grid-template-columns: 1fr; gap: 32px; min-height: 0; }
+  .network-lines { display: none; }
+  .network-providers { height: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto; gap: 10px; position: relative; }
+  .network-providers::after { content: ""; position: absolute; left: 16.667%; right: 16.667%; height: 16px; border-inline: 1px solid #c5d5e8; }
+  .network-services::after { top: 100%; border-bottom: 1px solid #c5d5e8; }
+  .network-infrastructure::after { bottom: 100%; border-top: 1px solid #c5d5e8; }
+  .network-hub { width: 54%; justify-self: center; min-height: 96px; }
+  .network-hub::before, .network-hub::after { content: ""; position: absolute; left: 50%; height: 32px; border-left: 1px solid #c5d5e8; }
+  .network-hub::before { bottom: 100%; }
+  .network-hub::after { top: 100%; }
 }
