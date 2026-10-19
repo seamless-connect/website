@@ -145,8 +145,8 @@ test("preserves capability scope and provides a conceptual workflow without inve
   assert.match(markup, /not live availability/);
   assert.match(markup, /Industry participation does not imply implemented integrations/);
   assert.match(markup, /Technical participation is independent of sponsorship/);
-  assert.match(markup, /A conceptual Domain Connect workflow/);
-  for (const label of ["Service", "Provider", "Participating DNS Provider", "Configuration outcome"]) assert.ok(markup.includes(label));
+  assert.match(markup, /Integrate once. Connect across providers./);
+  for (const label of ["Service Provider", "DNS Provider", "Registrar", "Cross-provider coordination", "Conceptual network, not live integrations"]) assert.ok(markup.includes(label));
   assert.doesNotMatch(markup, /<pre|<code|system-map|dns-strip|integration-grid/);
   assert.match(markup, /href="https:\/\/github.com\/seamless-connect\/docs"/);
 });
