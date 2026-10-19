@@ -12,7 +12,7 @@ test("exports the homepage and links to support", async () => {
   const html = await exportedHtml("index.html");
 
   assert.match(html, /Open Infrastructure for Cross-Provider Internet Operations/);
-  assert.match(html, /href=["']\/sponsors\/["']/);
+  assert.match(html, /href=["']\/funding\/["']/);
   assert.match(html, />Community</);
   assert.match(html, />Docs</);
   assert.match(html, />GitHub /);
@@ -144,9 +144,11 @@ test("preserves capability scope and provides a conceptual workflow without inve
   assert.match(markup, /made seamless\./);
   assert.match(markup, /neutral coordination layer between service providers, DNS providers, and registrars/);
   assert.match(markup, /Nonprofit administration is provided by/);
-  assert.match(markup, /Project-level capability status/);
-  for (const [anchor, status] of [["dns-configuration", "Initial focus"], ["dnssec", "Discovery and pilot design"], ["primary-secondary-dns", "Proposed"], ["domain-registration", "Proposed"], ["agent-bootstrapping", "Proposed"]]) {
-    assert.match(markup, new RegExp(`href="/use-cases/#${anchor}"[^]*?</th><td><span[^>]*>${status}</span></td>`));
+  assert.match(markup, /Project roadmap/);
+  assert.match(markup, /<th scope="col">Roadmap<\/th>/);
+  assert.doesNotMatch(markup, /<th scope="col">Status<\/th>/);
+  for (const anchor of ["dns-configuration", "dnssec", "primary-secondary-dns", "domain-registration", "agent-bootstrapping"]) {
+    assert.ok(markup.includes(`href="/use-cases/#${anchor}"`));
   }
   assert.match(markup, /not live availability/);
   assert.match(markup, /Industry participation does not imply implemented integrations/);
@@ -210,11 +212,11 @@ test("exports use cases with navigation, discovery deep link, and capability sco
   assert.match(html, /orchestration are outside this use case/);
 });
 
- test("offers implementation onboarding and independent financial sponsorship", async () => {
+ test("offers implementation onboarding with separate administration and funding", async () => {
   const html = (await exportedHtml("index.html")).replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
   assert.match(html, /Help build the Internet’s shared infrastructure/);
   assert.match(html, /Technical participation is open to everyone and does not require financial sponsorship/);
   for (const role of ["dns-provider", "service-provider", "registrar"]) assert.ok(html.includes(`/integration-checklists/${role}-integration-checklist.md`));
-  for (const name of ["Datum.net", "Cloud 66", "Implement", "Fund"]) assert.ok(html.includes(name));
-  assert.doesNotMatch(html, /Founding Contributors|Build with us\./);
+  for (const name of ["Datum.net", "Cloud 66", "Implement", "Supporting the project."]) assert.ok(html.includes(name));
+  assert.doesNotMatch(html, /Founding Contributors|Build with us\.|<h3>Fund<\/h3>/);
 });
