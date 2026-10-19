@@ -18,7 +18,6 @@ export function SiteHeader({ page }: { page: "home" | "sponsors" }) {
         <Link href="/sponsor/">Sponsor</Link>
         <a href="https://github.com/seamless-connect/docs" target="_blank" rel="noreferrer">Docs</a>
         <Link href={page === "home" ? "#support" : "/#support"}>Community</Link>
-        <a href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Crowdfund <ExternalArrow /></a>
         <a href={githubUrl} target="_blank" rel="noreferrer">GitHub <ExternalArrow /></a>
       </nav>
     </header>
