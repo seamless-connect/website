@@ -803,7 +803,7 @@ footer {
     width: calc(100% + 44px);
     margin: 18px -22px 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-top: 1px solid var(--border);
   }
@@ -1331,7 +1331,7 @@ footer {
 @media (max-width: 760px) {
  .preview-width { width: calc(100% - 40px); }
  .preview-home .site-header { height: auto; padding: 20px 20px 0; grid-template-columns: 1fr; }
- .preview-home .site-header nav { width: calc(100% + 40px); margin: 18px -20px 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 12px; }
+ .preview-home .site-header nav { width: calc(100% + 40px); margin: 18px -20px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; font-size: 12px; }
  .preview-home .site-header nav a { padding: 14px 4px; text-align: center; font-size: 12px; }
  .preview-hero { grid-template-columns: 1fr; padding-block: 28px 32px; gap: 34px; }
  .preview-hero-copy { padding-top: 0; }
@@ -1366,7 +1366,7 @@ footer {
 .participation-section { padding-block: 26px 22px; }
 .participation-section h2 { max-width: none; }
 .participation-lede { max-width: 960px; color: var(--muted); line-height: 1.4; font-size: 16px; margin: 0; }
-.participation-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 18px; }
+.participation-paths { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 18px; }
 .participation-path { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto 1fr auto auto; column-gap: 18px; padding: 20px 24px 16px; border: 1px solid #d7ecff; border-radius: 8px; background: #e5f4ff; align-content: start; justify-items: start; }
 .participation-path > :not(.participation-icon) { grid-column: 2; }
 .participation-icon { grid-column: 1; grid-row: 1 / 6; padding-top: 4px; color: #005fe0; }
@@ -1375,10 +1375,6 @@ footer {
 .participation-path p { color: #354f6b; font-size: 14px; line-height: 1.35; margin: 10px 0; }
 .participation-path .participation-purpose { color: #005fe0; font-size: 16px; margin: 0; }
 .participation-path .button { grid-row: 4; min-height: 40px; padding: 8px 18px; font-size: 14px; }
-.fund-path { background: #e3f8ed; border-color: #d5f2e2; }
-.fund-path h3, .fund-path .participation-purpose, .fund-path .participation-icon { color: #087b22; }
-.fund-path .button { background: #087b22; border-color: #087b22; }
-.fund-path .button:hover { background: #056019; }
 .onboarding-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; font-size: 11px; }
 .onboarding-links a { text-decoration: underline; text-underline-offset: 3px; }
 .participation-note { color: var(--muted); font-size: 12px; text-align: center; margin: 12px 0 0; }
@@ -1415,4 +1411,20 @@ footer {
   .network-hub::before, .network-hub::after { content: ""; position: absolute; left: 50%; height: 32px; border-left: 1px solid #c5d5e8; }
   .network-hub::before { bottom: 100%; }
   .network-hub::after { top: 100%; }
+}
+
+/* Keep the wordmark and six navigation links in separate, aligned tracks. */
+.site-header { grid-template-columns: max-content minmax(0, 1fr); column-gap: 40px; }
+.site-header nav { justify-self: end; align-items: center; }
+.site-header nav a { display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap; }
+.preview-home .site-header nav { gap: clamp(16px, 2.2vw, 32px); }
+@media (max-width: 1050px) {
+  .site-header, .preview-home .site-header { height: auto; grid-template-columns: minmax(0, 1fr); padding: 20px 28px 0; row-gap: 16px; }
+  .site-header nav, .preview-home .site-header nav { justify-self: stretch; width: auto; margin: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--border); }
+  .site-header nav a, .preview-home .site-header nav a { padding: 14px 4px; font-size: 13px; }
+}
+@media (max-width: 700px) {
+  .site-header, .preview-home .site-header { padding-inline: 20px; }
+  .site-header nav, .preview-home .site-header nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .site-header nav a, .preview-home .site-header nav a { font-size: 12px; }
 }

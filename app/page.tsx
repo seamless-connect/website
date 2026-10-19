@@ -1,4 +1,6 @@
 import Link from "next/link";
+import IndustryParticipants from "./components/industry-participants";
+import styles from "./home-support.module.css";
 import { ExternalArrow, SiteFooter, SiteHeader } from "./components/site-chrome";
 
 const githubUrl = "https://github.com/seamless-connect";
@@ -27,7 +29,7 @@ function Icon({ kind }: { kind: "globe" | "people" | "lock" | "cloud" | "databas
 function Workflow() {
   return <figure className="preview-workflow" id="how" aria-labelledby="workflow-caption">
     <figcaption id="workflow-caption">Integrate once. Connect across providers.</figcaption>
-    <p className="visually-hidden">Conceptual network: multiple service providers connect through Seamless Connect, a cross-provider coordination hub, to DNS providers and registrars.</p>
+    <p className="visually-hidden">Conceptual network: multiple service providers connect through Seamless Connect, a cross-provider coordination hub, to registrars, DNS providers, and agent registries.</p>
     <div className="provider-network">
       <svg className="network-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <path d="M24 17H28L36 50H40M24 50H40M24 83H28L36 50M60 50H64L72 17H76M60 50H76M64 50L72 83H76" />
@@ -36,10 +38,10 @@ function Workflow() {
         {["A", "B", "C"].map((provider) => <div className="network-node" key={provider}>Service Provider<span>{provider}</span></div>)}
       </div>
       <div className="network-node network-hub"><strong>Seamless Connect</strong><span>Cross-provider coordination</span></div>
-      <div className="network-providers network-infrastructure" role="group" aria-label="Generic infrastructure providers">
-        <div className="network-node">DNS Provider<span>A</span></div>
-        <div className="network-node">DNS Provider<span>B</span></div>
-        <div className="network-node">Registrar</div>
+      <div className="network-providers network-infrastructure" role="group" aria-label="Infrastructure providers">
+        <div className="network-node">Registrars</div>
+        <div className="network-node">DNS Providers</div>
+        <div className="network-node">Agent Registries</div>
       </div>
     </div>
     <p className="workflow-scope">Conceptual network, not live integrations. Availability and verification depend on the operation and participating provider integrations.</p>
@@ -50,6 +52,12 @@ export default function Home() {
   return (
     <main className="preview-home">
       <SiteHeader page="home" />
+      <aside className={styles.crowdfundingBanner} aria-label="Crowdfunding announcement">
+        <div className={`preview-width ${styles.bannerContent}`}>
+          <p><strong>Crowdfunding is now open through the Linux Foundation.</strong> <span>Help support the development of Seamless Connect.</span></p>
+          <a href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Support the project <span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
       <section className="preview-hero preview-width" id="top" aria-labelledby="home-title">
         <div className="preview-hero-copy"><p className="section-index">Open source · Cross-provider · Nonprofit</p>
           <h1 id="home-title">Domain operations,<br />made seamless.</h1>
@@ -59,8 +67,8 @@ export default function Home() {
         <Workflow />
       </section>
       <section className="preview-band" id="integrate" aria-labelledby="operations-heading"><div className="preview-width preview-split operations-layout">
-        <div><p className="section-index">Use cases</p><h2 id="operations-heading">Integrate once. Reach across providers.</h2><p>Seamless Connect begins with DNS configuration through Domain Connect. The aim is to let participating providers integrate once to reach a broader ecosystem, reducing individual integrations with every counterpart.</p><Link className="home-text-link" href="/use-cases/">Explore use cases and protocols <span aria-hidden="true">→</span></Link><p className="home-note">Project-level statuses, not live availability. Availability depends on the operation and participating provider integrations.</p></div>
-        <table className="operation-table"><caption className="visually-hidden">Project-level capability status</caption><thead><tr><th scope="col">Operation</th><th scope="col">Status</th></tr></thead><tbody>{operations.map(([name, status, anchor, tone]) => <tr key={name}><th scope="row"><Link href={`/use-cases/#${anchor}`}>{name}</Link>{anchor === "dns-configuration" && <small>(via Domain Connect)</small>}</th><td><span className={`status-badge status-${tone}`}>{status}</span></td></tr>)}</tbody></table>
+        <div><p className="section-index">Use cases</p><h2 id="operations-heading">Integrate once. Reach across providers.</h2><p>Seamless Connect begins with DNS configuration through Domain Connect. The aim is to let participating providers integrate once to reach a broader ecosystem, reducing individual integrations with every counterpart.</p><Link className="home-text-link" href="/use-cases/">Explore use cases and protocols <span aria-hidden="true">→</span></Link><p className="home-note">Roadmap, not live availability. Availability depends on the operation and participating provider integrations.</p></div>
+        <table className="operation-table"><caption className="visually-hidden">Project roadmap</caption><thead><tr><th scope="col">Roadmap</th></tr></thead><tbody>{operations.map(([name, , anchor]) => <tr key={name}><th scope="row"><Link href={`/use-cases/#${anchor}`}>{name}</Link>{anchor === "dns-configuration" && <small>(via Domain Connect)</small>}</th></tr>)}</tbody></table>
       </div></section>
       <section className="preview-width preview-split infrastructure-layout" id="public-infrastructure" aria-labelledby="open-heading">
         <div><p className="section-index">Open infrastructure</p><h2 id="open-heading">Built for the Internet,<br />not a single provider.</h2><p>Seamless Connect is developed openly as neutral Internet infrastructure. It supports interoperability across competing providers while preserving their authority over authorization, policy, and execution.</p><p>Nonprofit administration is provided by the <a href="https://www.agenticnet.org/" target="_blank" rel="noreferrer">Foundation for Agentic Networks (FAN)</a>. Technical participation is independent of sponsorship.</p><p>Provider workflows, APIs, CLIs, and authorized software agents are ways to access the coordination service.</p><Link className="home-text-link" href="/charter/">Read the project charter <span aria-hidden="true">→</span></Link></div>
@@ -69,17 +77,36 @@ export default function Home() {
       <section className="participation-band" id="support" aria-labelledby="community-heading">
         <div className="preview-width participation-section"><p className="section-index">Build with us</p>
         <h2 id="community-heading">Help build the Internet’s shared infrastructure</h2>
-        <p className="participation-lede">Seamless Connect is an industry-supported open-source project building shared infrastructure for domain operations. Help implement integrations and sustain development.</p>
+        <p className="participation-lede">Seamless Connect is an industry-supported open-source project building shared infrastructure for domain operations. Help implement integrations and contribute engineering expertise.</p>
         <div className="participation-paths">
           <div className="participation-path implement-path"><div className="participation-icon"><Icon kind="code" /></div><h3>Implement</h3><p className="participation-purpose">Make interoperability work.</p><p>We’re seeking DNS providers, service providers, and registrars to build integrations, participate in pilots, and contribute engineering expertise.</p><a className="button button-primary" href={`${githubUrl}/docs/tree/main/integration-checklists`} target="_blank" rel="noreferrer">Become an integration partner <ExternalArrow /></a><nav className="onboarding-links" aria-label="Integration onboarding checklists"><a href={`${githubUrl}/docs/blob/main/integration-checklists/dns-provider-integration-checklist.md`} target="_blank" rel="noreferrer">DNS providers</a><a href={`${githubUrl}/docs/blob/main/integration-checklists/service-provider-integration-checklist.md`} target="_blank" rel="noreferrer">Service providers</a><a href={`${githubUrl}/docs/blob/main/integration-checklists/registrar-integration-checklist.md`} target="_blank" rel="noreferrer">Registrars</a></nav></div>
-          <div className="participation-path fund-path"><div className="participation-icon"><Icon kind="fund" /></div><h3>Fund</h3><p className="participation-purpose">Make interoperability sustainable.</p><p>We’re seeking financial sponsors, particularly service providers and registrars that benefit from simpler, more interoperable domain operations. Support engineering, shared infrastructure, and project operations.</p><Link className="button button-primary" href="/sponsors/">Sponsor the project <span aria-hidden="true">→</span></Link></div>
         </div>
         <p className="participation-note">Technical participation is open to everyone and does not require financial sponsorship.</p></div>
       </section>
-      <section className="recognition-band" id="ecosystem" aria-labelledby="recognition-heading"><div className="preview-width preview-split recognition-layout">
-        <div><p className="section-index">Industry participation</p><h2 id="recognition-heading">Building together.</h2><p>Early industry participation includes Name.com (Identity Digital), Cloudflare, DigiCert, Datum.net, and Cloud 66, alongside Domain Connect maintainers Pawel Kowalik and Sami Kerola.</p><p className="home-note">Industry participation does not imply implemented integrations.</p></div>
-        <dl className="preview-recognition"><div><dt>Founding Sponsor · Initial funding</dt><dd><span className="recognition-name namecom">Name.com</span><small>(Identity Digital)</small></dd></div><div><dt>Committed project sponsors</dt><dd><span className="recognition-name cloudflare">Cloudflare</span><span className="recognition-name digicert">DigiCert</span><span className="recognition-name">Datum.net</span></dd></div><div><dt>Nonprofit administrator</dt><dd className="fan-name">Foundation for Agentic Networks (FAN)</dd></div></dl>
+      <section className="recognition-band" id="ecosystem" aria-labelledby="recognition-heading"><div className={`preview-width ${styles.section}`}>
+        <p className="section-index">Industry participation</p>
+        <h2 id="recognition-heading">Building together.</h2>
+        <p className={styles.description}>Technical contributions, integration collaboration, and industry participation to help make cross-provider operations easier.</p>
+        <IndustryParticipants />
+        <p className={styles.note}>Industry participation does not imply implemented integrations.</p>
       </div></section>
+      <section className={`preview-width ${styles.section}`} id="administration-funding" aria-labelledby="administration-heading">
+        <p className="section-index">Administration &amp; funding</p>
+        <h2 id="administration-heading">Supporting the project.</h2>
+        <div className={styles.columns}>
+          <article>
+            <p className="section-index">Current nonprofit administrator</p>
+            <h3><a href="https://www.agenticnet.org/" target="_blank" rel="noreferrer">Foundation for Agentic Networks (FAN)</a></h3>
+            <p>FAN provides the project’s current nonprofit administrative home.</p>
+          </article>
+          <article>
+            <p className="section-index">Crowdfunding channel</p>
+            <h3><a href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Linux Foundation</a></h3>
+            <p>Financial contributions can be made through Linux Foundation crowdfunding. The Linux Foundation is not the project administrator.</p>
+            <a className="home-text-link" href="https://crowdfunding.linuxfoundation.org/initiatives/seamless-connect" target="_blank" rel="noreferrer">Visit crowdfunding portal <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
       <SiteFooter page="home" />
     </main>
   );
