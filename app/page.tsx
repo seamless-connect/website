@@ -28,14 +28,21 @@ function Icon({ kind }: { kind: "globe" | "people" | "lock" | "cloud" | "databas
 
 function Workflow() {
   return <figure className="preview-workflow" id="how" aria-labelledby="workflow-caption">
-    <figcaption id="workflow-caption">Integrate once. Connect across providers.</figcaption>
-    <p className="visually-hidden">Conceptual network: multiple service providers connect through Seamless Connect, a cross-provider coordination hub, to registrars, DNS providers, and agent registries.</p>
+    <figcaption id="workflow-caption">ONE INTEGRATION. MANY PROVIDERS.</figcaption>
+    <p className="visually-hidden">Conceptual network: online services, developer tools, and AI agents and platforms connect bidirectionally through Seamless Connect, a cross-provider coordination hub, to registrars, DNS providers, and agent registries.</p>
     <div className="provider-network">
       <svg className="network-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path d="M24 17H28L36 50H40M24 50H40M24 83H28L36 50M60 50H64L72 17H76M60 50H76M64 50L72 83H76" />
+        <defs>
+          <marker id="network-arrow" viewBox="0 0 6 6" refX="6" refY="3" markerWidth="1.6" markerHeight="2.4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+            <path d="M0 0L6 3L0 6" fill="none" />
+          </marker>
+        </defs>
+        {["M24 17H28L36 50", "M24 50H36", "M24 83H28L36 50", "M64 50L72 17H76", "M64 50H76", "M64 50L72 83H76"].map((d) => <path key={d} d={d} markerStart="url(#network-arrow)" markerEnd="url(#network-arrow)" />)}
       </svg>
-      <div className="network-providers network-services" role="group" aria-label="Generic service providers">
-        {["A", "B", "C"].map((provider) => <div className="network-node" key={provider}>Service Provider<span>{provider}</span></div>)}
+      <div className="network-providers network-services" role="group" aria-label="Services, tools, and agent platforms">
+        <div className="network-node">Online Services<span>Websites, Email, SaaS</span></div>
+        <div className="network-node">Developer Tools<span>CLI, SDKs, Terraform</span></div>
+        <div className="network-node">AI Agents &amp; Platforms<span>Codex, ChatGPT Work, autonomous agents</span></div>
       </div>
       <div className="network-node network-hub"><strong>Seamless Connect</strong><span>Cross-provider coordination</span></div>
       <div className="network-providers network-infrastructure" role="group" aria-label="Infrastructure providers">

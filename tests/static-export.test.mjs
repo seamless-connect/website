@@ -130,8 +130,10 @@ test("preserves capability scope and provides a conceptual workflow without inve
   assert.match(markup, /not live availability/);
   assert.match(markup, /Industry participation does not imply implemented integrations/);
   assert.match(markup, /Technical participation is independent of sponsorship/);
-  assert.match(markup, /Integrate once. Connect across providers./);
-  for (const label of ["Service Provider", "DNS Provider", "Registrar", "Cross-provider coordination", "Conceptual network, not live integrations"]) assert.ok(markup.includes(label));
+  assert.match(markup, /ONE INTEGRATION\. MANY PROVIDERS\./);
+  assert.equal((markup.match(/marker-start="url\(#network-arrow\)"/g) || []).length, 6);
+  assert.equal((markup.match(/marker-end="url\(#network-arrow\)"/g) || []).length, 6);
+  for (const label of ["ONE INTEGRATION. MANY PROVIDERS.", "Online Services", "Websites, Email, SaaS", "Developer Tools", "CLI, SDKs, Terraform", "AI Agents &amp; Platforms", "Codex, ChatGPT Work, autonomous agents", "DNS Provider", "Registrar", "Cross-provider coordination", "Conceptual network, not live integrations"]) assert.ok(markup.includes(label));
   assert.doesNotMatch(markup, /<pre|<code|system-map|dns-strip|integration-grid/);
   assert.match(markup, /href="https:\/\/github.com\/seamless-connect\/docs"/);
 });
